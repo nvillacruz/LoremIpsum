@@ -1,0 +1,329 @@
+﻿<Window x:Class="LoremIpsum.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoremIpsum.WpfApp"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        x:Name="AppWindow"
+        Icon="../Images/Logo/logo-small.png"
+        MinWidth="{Binding WindowMinimumWidth}"
+        MinHeight="{Binding WindowMinimumHeight}"
+        Deactivated="AppWindow_Deactivated"
+        Activated="AppWindow_Activated"
+        d:DesignHeight="700"
+        d:DesignWidth="1280">
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="WindowStyle"
+                    Value="None" />
+            <Setter Property="AllowsTransparency"
+                    Value="True" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}"
+                                  CaptionHeight="{Binding TitleHeight}"
+                                  CornerRadius="0"
+                                  GlassFrameThickness="0" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer border with the drop shadow margin -->
+                        <Border Padding="{Binding OuterMarginSize, FallbackValue=0}"
+                                BorderBrush="{DynamicResource {x:Static local:Brushes.ForegroundDarkBrush1} }"
+                                BorderThickness="{Binding FlatBorderThickness}">
+
+                            <!-- Main window outline -->
+                            <Grid>
+
+                                <!-- Outer dragging border -->
+                                <Border BorderThickness="{Binding BeingMoved, Converter={local:BooleanToBorderThicknessConverter}}"
+                                        Panel.ZIndex="2"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        BorderBrush="{DynamicResource {x:Static local:Brushes.WordDarkBlueBrush1}}" />
+
+                                <!-- Opacity mask for corners on grid -->
+                                <!--NOTE:Dynamic Resource is not working here, just leave as it is-->
+                                <Border x:Name="Container"
+                                        Background="White"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
+
+                                <!-- Window border and drop shadow -->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        Background="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush}}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0.5"
+                                                          Opacity="0.2" />
+                                    </Border.Effect>
+                                </Border>
+
+                                <!-- The main window content -->
+                                <Grid>
+
+                                    <!-- Corner clipping -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}" />
+                                    </Grid.OpacityMask>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                        <!--<RowDefinition Height="Auto" />-->
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Title Bar -->
+                                    <Grid Panel.ZIndex="1"
+                                          Background="{DynamicResource {x:Static local:Brushes.TitleBarBrush} }">
+
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Icon -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Title -->
+                                            <ColumnDefinition />
+
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Windows Button -->
+                                            <ColumnDefinition Width="Auto" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Icon -->
+                                        <Button Style="{StaticResource SystemIconButton}"
+                                                Command="{Binding MenuCommand}">
+                                            <Image Source="../Images/Logo/logo-small.png" />
+                                        </Button>
+
+                                        <Menu Grid.Column="1"
+                                              Visibility="{Binding ApplicationViewModel.LoginDetailsVisible, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:BooleanToVisiblityGoneConverter}}"
+                                            HorizontalAlignment="Left"
+                                              WindowChrome.IsHitTestVisibleInChrome="True">
+                                            <MenuItem Header="_Settings">
+                                                <MenuItem Header="_Language">
+                                                    <MenuItem Header="English"
+                                                              Command="{Binding LocalizationViewModel.ChangeLanguageCommand, Source={x:Static local:ViewModelLocator.Instance} }"
+                                                              CommandParameter="{Binding Converter={local:LanguageTypeConverter}}" />
+                                                    <MenuItem Header="France"
+                                                              Command="{Binding LocalizationViewModel.ChangeLanguageCommand, Source={x:Static local:ViewModelLocator.Instance} }"
+                                                              CommandParameter="{Binding Converter={local:LanguageTypeConverter}, ConverterParameter=France}" />
+                                                </MenuItem>
+
+                                            </MenuItem>
+                                            <MenuItem Header="Settings"
+                                                      Command="{Binding Source={x:Static local:ViewModelLocator.Instance}, Path=ApplicationViewModel.AddApplicationTabCommand}"
+                                                      Tag="EnterpriseSetting"
+                                                      CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"/>
+                                        </Menu>
+
+
+
+                                        <StackPanel Grid.Column="2"
+                                                    Orientation="Horizontal">
+
+                                            <!--Icon picture/ Login Details-->
+                                            <Button WindowChrome.IsHitTestVisibleInChrome="True"
+                                                    Padding="5"
+                                                    Name="btnLoginDetails"
+                                                    local:IsBusyProperty.Value="True"
+                                                    Command="{Binding SettingsViewModel.ShowLoginDetailsCommand, Source={x:Static local:ViewModelLocator.Instance}}"
+                                                    Style="{StaticResource FlatIconSVGButton}"
+                                                    Visibility="{Binding ApplicationViewModel.LoginDetailsVisible, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:BooleanToVisiblityGoneConverter}}">
+                                                <Button.ContentTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Border Width="30"
+                                                                    Height="30"
+                                                                    CornerRadius="50"
+                                                                    Background="{DynamicResource {x:Static local:Brushes.ForegroundBrush}}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </Button.ContentTemplate>
+                                            </Button>
+
+
+                                            <Popup IsOpen="{Binding SettingsViewModel.ShowLoginDetails, Source={x:Static local:ViewModelLocator.Instance}}"
+                                                   VerticalOffset="{Binding ActualHeight, ElementName=btnLoginDetails}"
+                                                   PlacementTarget="{Binding ElementName=btnLoginDetails}"
+                                                   StaysOpen="False"
+                                                   Placement="Relative">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition />
+                                                    </Grid.RowDefinitions>
+
+                                                    <Path Grid.Row="1"
+                                                          Stroke="Black"
+                                                          Panel.ZIndex="1"
+                                                          Margin="15 0 15 -1"
+                                                          Data="M 0,0 L 10,10 L 0,0 L 0,0"
+                                                          StrokeThickness="0"
+                                                          HorizontalAlignment="Left"
+                                                          Fill="White">
+
+                                                        <Path.Effect>
+                                                            <DropShadowEffect BlurRadius="3"
+                                                                              ShadowDepth="3"
+                                                                              Color="Blue" />
+                                                        </Path.Effect>
+
+                                                    </Path>
+
+                                                    <Border Grid.Row="1"
+                                                            BorderThickness="1"
+                                                            BorderBrush="WhiteSmoke"
+                                                            Padding="10"
+                                                            Background="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush}}">
+                                                        <Border.Effect>
+                                                            <DropShadowEffect ShadowDepth="0.2"
+                                                                              Opacity="0.2" />
+                                                        </Border.Effect>
+
+                                                        <StackPanel>
+
+                                                            <TextBlock Text="{Binding SettingsViewModel.FullName,  Source={x:Static local:ViewModelLocator.Instance}}" />
+
+
+                                                            <Border BorderBrush="WhiteSmoke"
+                                                                    BorderThickness="0 1 0 0"
+                                                                    Margin="0 10 0 0" />
+                                                            <!--Logging out-->
+                                                            <Button Content="Logout"
+                                                                    local:IsBusyProperty.Value="{Binding SettingsViewModel.LoggingOut, Source={x:Static local:ViewModelLocator.Instance}}"
+                                                                    Style="{StaticResource TextButton}"
+                                                                    Command="{Binding SettingsViewModel.LogoutCommand, Source={x:Static local:ViewModelLocator.Instance}}"
+                                                                    Visibility="{Binding ApplicationViewModel.LoginDetailsVisible, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:BooleanToVisiblityGoneConverter}}" />
+                                                        </StackPanel>
+                                                    </Border>
+                                                </Grid>
+                                            </Popup>
+
+                                        </StackPanel>
+
+                                        <!-- Window Buttons -->
+                                        <StackPanel Grid.Column="3"
+                                                    Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}"
+                                                    Style="{StaticResource WindowMinimizeButton}" />
+                                            <Button x:Name="maximizedButton"
+                                                    Command="{Binding MaximizeCommand}"
+                                                    Style="{StaticResource WindowMaximizeButton}" />
+
+                                            <Button Command="{Binding CloseCommand}"
+                                                    Style="{StaticResource WindowCloseButton}" />
+                                        </StackPanel>
+
+                                    </Grid>
+
+
+                                    <!-- No Internet Connection Bar -->
+                                    <Border local:AnimateSlideInFromBottomProperty.Value="{Binding 
+                                            ApplicationViewModel.ServerReachable, 
+                                            Source={x:Static local:ViewModelLocator.Instance},
+                                            Converter={local:BooleanInvertConverter}}"
+                                            Background="{DynamicResource {x:Static local:Brushes.WordRedBrush1}}"
+                                            Grid.Row="1"
+                                            Padding="1">
+
+                                        <Label HorizontalAlignment="Center"
+                                               Foreground="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush} }">
+                                            No Internet connection. Please check your network
+                                        </Label>
+
+                                    </Border>
+
+                                    <!-- Page Content -->
+                                    <Border Grid.Row="2"
+                                            Padding="{Binding InnerContentPadding}"
+                                            ClipToBounds="True">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </Border>
+                                </Grid>
+
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="WindowState"
+                                     Value="Maximized">
+                                <!--Change to Restore Icon button-->
+                                <Setter TargetName="maximizedButton"
+                                        Property="Style"
+                                        Value="{StaticResource WindowRestoreButton}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Border Background="{DynamicResource {x:Static local:Brushes.BodyBrush} }">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <local:SideMenuView local:AnimateSlideInFromLeftProperty.Value="{Binding ApplicationViewModel.SideMenuVisible, Source={x:Static local:ViewModelLocator.Instance}}" />
+            <!-- Blue background image -->
+            <!--<Grid.Background>
+                <ImageBrush TileMode="Tile"
+                            ViewportUnits="Absolute"
+                            Viewport="0 0 500 500"
+                            ImageSource="/Images/Backgrounds/emoji-background.png" />
+            </Grid.Background>-->
+
+            <!-- Dimmed overlay -->
+            <!--<Border Grid.ColumnSpan="2"
+                    Panel.ZIndex="10"
+                    Opacity="0.3">
+                <Border Background="{DynamicResource {x:Static local:Brushes.BlackBrush}}"
+                        local:AnimateFadeInProperty.Value="{Binding DimmableOverlayVisible}" />
+            </Border>-->
+
+            <!-- Dimmed overlay -->
+            <Border Grid.ColumnSpan="2"
+                    Panel.ZIndex="10"
+                   >
+                <Grid>
+                    <Border Background="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush} }"
+                            local:AnimateFadeInProperty.Value="{Binding SettingsViewModel.LoggingOut, Source={x:Static local:ViewModelLocator.Instance}, Mode=TwoWay}" />
+
+                    <ContentControl  ContentTemplate="{StaticResource LoadingCircleTemplate}"
+                                     Height="50"
+                                     Focusable="False"
+                                     Foreground="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush}}"
+                                     local:AnimateFadeInProperty.Value="{Binding SettingsViewModel.LoggingOut, Source={x:Static local:ViewModelLocator.Instance}, Mode=TwoWay}" />
+                    <!--<TextBlock Text="Logging Out"
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               local:AnimateFadeInProperty.Value="{Binding SettingsViewModel.LoggingOut, Source={x:Static local:ViewModelLocator.Instance}, Mode=TwoWay}" />-->
+                </Grid>
+            </Border>
+
+            <local:PageHost Grid.Column="1"
+                            CurrentPage="{Binding ApplicationViewModel.CurrentPage,
+                                        Source={x:Static local:ViewModelLocator.Instance}}"
+                            CurrentPageViewModel="{Binding ApplicationViewModel.CurrentPageViewModel,
+                                        Source={x:Static local:ViewModelLocator.Instance}}" />
+
+
+            <!-- Side Menu -->
+            <!--
+            <local:SideMenuControl DataContext="{Binding ApplicationViewModel, Source={x:Static local:ViewModelLocator.Instance}}"
+                                   Width="300"
+                                   local:AnimateSlideInFromLeftProperty.Value="{Binding SideMenuVisible}"
+                                   Content="{Binding CurrentSideMenuContent, Converter={local:SideMenuContentConverter}}" />-->
+        </Grid>
+    </Border>
+
+</Window>

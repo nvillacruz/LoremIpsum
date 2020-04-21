@@ -1,0 +1,169 @@
+﻿<local:BaseUserControl x:TypeArguments="local:HomeViewModel"
+                       x:Class="LoremIpsum.WpfApp.HomeView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:local="clr-namespace:LoremIpsum.WpfApp"
+                       xmlns:core="clr-namespace:LoremIpsum.Core;assembly=LoremIpsum.Core"
+                       mc:Ignorable="d"
+                       x:Name="Page">
+    <Grid>
+        <!-- Main content scroll -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto">
+            <Border Margin="5 0">
+
+                <Grid>
+                    <StackPanel Visibility="{Binding ApplicationViewModel.ApplicationTabs.HasItems, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:BooleanToVisiblityGoneConverter}, ConverterParameter=True}">
+                        <TextBlock Text="Home" />
+                    </StackPanel>
+             
+
+                        <!--<TextBlock Text="Examples" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Text="Normal Text" />
+                            <TextBlock Text="Heading 1" />
+                            <TextBlock Text="Heading 2" />
+                            <TextBlock Text="Heading 3" />
+                            <TextBlock Text="Heading 4" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1"
+                                    Grid.Row="1">
+                            <TextBox Text="Default TextBox" />
+
+                            <TextBox Style="{StaticResource LabelTextBoxStyle}"
+                                     local:LabelTextProperty.Value="TextBox with Label" />
+                            <PasswordBox />
+                            <PasswordBox Style="{StaticResource LabelPasswordStyle}"
+                                         local:LabelTextProperty.Value="PasswordBox with Label" />
+
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2"
+                                    Grid.Row="1">
+                            <Button Content="Regular Button" />
+
+                        </StackPanel>
+
+                    </Grid>-->
+
+                        <Grid Background="{DynamicResource {x:Static local:Brushes.BodyBrush}}"
+                              Visibility="{Binding ApplicationViewModel.ApplicationTabs.HasItems, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:BooleanToVisiblityGoneConverter}}"
+                             >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                  
+
+                        <ItemsControl ItemsSource="{Binding ApplicationViewModel.ApplicationTabs.Collection, Source={x:Static local:ViewModelLocator.Instance}}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding  ApplicationViewModel.ApplicationTabs.SelectCommand, Source={x:Static local:ViewModelLocator.Instance}}"
+                                            CommandParameter="{Binding }">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border x:Name="bd"
+                                                        Padding="5"
+                                                        BorderThickness="1">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="1"
+                                                                   Text="{Binding Label}"
+                                                                   Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" />
+                                                        <Button Grid.Column="2"
+                                                                x:Name="closeButton"
+                                                                Margin="2"
+                                                                Cursor="Arrow"
+                                                               
+                                                                Background="Transparent"
+                                                                Foreground="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+                                                                Style="{StaticResource CloseIconButton}"
+                                                                Command="{Binding ApplicationViewModel.ApplicationTabs.CloseCommand, Source={x:Static local:ViewModelLocator.Instance} }"
+                                                                CommandParameter="{Binding}" />
+
+                                                    </Grid>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver"
+                                                             Value="True">
+                                                        <Setter Property="Background"
+                                                                TargetName="bd"
+                                                                Value="{DynamicResource {x:Static local:Brushes.ForegroundDarkBrush1}}" />
+                                                    </Trigger>
+
+                                                    <Trigger Property="IsMouseOver"
+                                                             SourceName="closeButton"
+                                                             Value="True">
+                                                        <Setter Property="Background"
+                                                                TargetName="closeButton"
+                                                                Value="White" />
+                                                    </Trigger>
+
+                                                    <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                                        <Setter Property="Background"
+                                                                TargetName="bd"
+                                                                Value="{DynamicResource {x:Static local:Brushes.AccentBlueBrush1}}" />
+                                                    </DataTrigger>
+
+                                                    <DataTrigger Binding="{Binding IsSelected}"
+                                                                 Value="False">
+                                                        <Setter Property="Foreground"
+                                                                Value="{DynamicResource {x:Static local:Brushes.ForegroundBrush}}" />
+                                                    </DataTrigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+
+                                        </Button.Template>
+                                    </Button>
+
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding ApplicationViewModel.ApplicationTabs.Collection, Source={x:Static local:ViewModelLocator.Instance}}"
+                                      Grid.Row="1">
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border  BorderThickness="1" Padding="5">
+                                    <ContentControl Content="{Binding ContentViewModelObject, Converter={local:ApplicationContentConverter}}"
+                                                        Visibility="{Binding IsSelected, Converter={local:BooleanToVisiblityGoneConverter}}" />
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Grid  Background="White" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        </Grid>
+                </Grid>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</local:BaseUserControl>

@@ -1,0 +1,2502 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoremIpsum.WpfApp</name>
+    </assembly>
+    <members>
+        <member name="T:LoremIpsum.WpfApp.AnimationSlideInDirection">
+            <summary>
+            The direction an animation slides in (the slide out direction is reversed)
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.AnimationSlideInDirection.Left">
+            <summary>
+            Slide in from the left
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.AnimationSlideInDirection.Right">
+            <summary>
+            Slide in from the right
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.AnimationSlideInDirection.Top">
+            <summary>
+            Slide in from the top
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.AnimationSlideInDirection.Bottom">
+            <summary>
+            Slide in from the bottom
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.FrameworkElementAnimations">
+            <summary>
+            Helpers to animate framework elements in specific ways
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkElementAnimations.SlideAndFadeInAsync(System.Windows.FrameworkElement,LoremIpsum.WpfApp.AnimationSlideInDirection,System.Boolean,System.Single,System.Boolean,System.Int32)">
+            <summary>
+            Slides an element in
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="direction">The direction of the slide</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+            <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
+            <param name="firstLoad">Indicates if this is the first load</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkElementAnimations.SlideAndFadeOutAsync(System.Windows.FrameworkElement,LoremIpsum.WpfApp.AnimationSlideInDirection,System.Single,System.Boolean,System.Int32)">
+            <summary>
+            Slides an element out
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="direction">The direction of the slide (this is for the reverse slide out action, so Left would slide out to left)</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+            <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkElementAnimations.FadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single)">
+            <summary>
+            Fades an element in
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="firstLoad">Indicates if this is the first load</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkElementAnimations.FadeOutAsync(System.Windows.FrameworkElement,System.Single)">
+            <summary>
+            Fades out an element
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="seconds">The time the animation will take</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkElementAnimations.MarqueeAsync(System.Windows.FrameworkElement,System.Single)">
+            <summary>
+            Animates a marquee style element
+            The structure should be:
+            [Border ClipToBounds="True"]
+              [Border local:AnimateMarqueeProperty.Value="True"]
+                 [Content HorizontalAlignment="Left"]
+              [/Border]
+            [/Border]
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="seconds">The time the animation will take</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.PageAnimation">
+            <summary>
+            Styles of page animations for appearing/disappearing
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.PageAnimation.None">
+            <summary>
+            No animation takes place
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.PageAnimation.SlideAndFadeInFromRight">
+            <summary>
+            The page slides in and fades in from the right
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.PageAnimation.SlideAndFadeOutToLeft">
+            <summary>
+            The page slides out and fades out to the left
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.PageAnimations">
+            <summary>
+            Helpers to animate pages in specific ways
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.PageAnimations.SlideAndFadeInFromRightAsync(System.Windows.Controls.Page,System.Single)">
+            <summary>
+            Slides a page in from the right
+            </summary>
+            <param name="page">The page to animate</param>
+            <param name="seconds">The time the animation will take</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.PageAnimations.SlideAndFadeOutToLeftAsync(System.Windows.Controls.Page,System.Single)">
+            <summary>
+            Slides a page out to the left
+            </summary>
+            <param name="page">The page to animate</param>
+            <param name="seconds">The time the animation will take</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.StoryboardHelpers">
+            <summary>
+            Animation helpers for <see cref="!:StoryBoard"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideFromLeft(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from left animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the left to start from</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideToLeft(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to left animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the left to end at</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideFromRight(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from right animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the right to start from</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideToRight(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to right animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the right to end at</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideFromTop(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from top animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the top to start from</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideToTop(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to top animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the top to end at</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideFromBottom(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from bottom animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the bottom to start from</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddSlideToBottom(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to bottom animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="offset">The distance to the bottom to end at</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddFadeIn(System.Windows.Media.Animation.Storyboard,System.Single,System.Boolean)">
+            <summary>
+            Adds a fade in animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="from"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddFadeOut(System.Windows.Media.Animation.Storyboard,System.Single)">
+            <summary>
+            Adds a fade out animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.StoryboardHelpers.AddMarquee(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Double)">
+            <summary>
+            Adds a marquee scrolling right to left animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="seconds">The time the animation will take</param>
+            <param name="contentOffset">The inner contents size, to start the marquee as soon as that content has scrolled out of view</param>
+            <param name="offset">The offset of the parent to scroll within</param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.App.OnStartup(System.Windows.StartupEventArgs)">
+            <summary>
+            Custom startup so we load our IoC immediately before anything else
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.App.ApplicationSetupAsync">
+            <summary>
+            Configures our application ready for use
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.App.MonitorServerStatus">
+            <summary>
+            Monitors the server if it is up, running and reachable
+            by periodically hitting it up
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseAttachedProperty`2">
+            <summary>
+            A base attached property to replace the vanilla WPF attached property
+            </summary>
+            <typeparam name="Parent">The parent class to be the attached property</typeparam>
+            <typeparam name="Property">The type of this attached property</typeparam>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.BaseAttachedProperty`2.ValueChanged">
+            <summary>
+            Fired when the value changes
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.BaseAttachedProperty`2.ValueUpdated">
+            <summary>
+            Fired when the value changes, even when the value is the same
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseAttachedProperty`2.Instance">
+            <summary>
+            A singleton instance of our parent class
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseAttachedProperty`2.ValueProperty">
+            <summary>
+            The attached property for this class
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseAttachedProperty`2.OnValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The callback event when the <see cref="F:LoremIpsum.WpfApp.BaseAttachedProperty`2.ValueProperty"/> is changed
+            </summary>
+            <param name="d">The UI element that had it's property changed</param>
+            <param name="e">The arguments for the event</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseAttachedProperty`2.OnValuePropertyUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            The callback event when the <see cref="F:LoremIpsum.WpfApp.BaseAttachedProperty`2.ValueProperty"/> is changed, even if it is the same value
+            </summary>
+            <param name="d">The UI element that had it's property changed</param>
+            <param name="value">The arguments for the event</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseAttachedProperty`2.GetValue(System.Windows.DependencyObject)">
+            <summary>
+            Gets the attached property
+            </summary>
+            <param name="d">The element to get the property from</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseAttachedProperty`2.SetValue(System.Windows.DependencyObject,`1)">
+            <summary>
+            Sets the attached property
+            </summary>
+            <param name="d">The element to get the property from</param>
+            <param name="value">The value to set the property to</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseAttachedProperty`2.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The method that is called when any attached property of this type is changed
+            </summary>
+            <param name="sender">The UI element that this property was changed for</param>
+            <param name="e">The arguments for this event</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseAttachedProperty`2.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            The method that is called when any attached property of this type is changed, even if the value is the same
+            </summary>
+            <param name="sender">The UI element that this property was changed for</param>
+            <param name="value">The arguments for this event</param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ClipFromBorderProperty">
+            <summary>
+            Creates a clipping region from the parent <see cref="T:System.Windows.Controls.Border"/> <see cref="T:System.Windows.CornerRadius"/>
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.ClipFromBorderProperty.mBorder_Loaded">
+            <summary>
+            Called when the parent border first loads
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.ClipFromBorderProperty.mBorder_SizeChanged">
+            <summary>
+            Called when the border size changes
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ClipFromBorderProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ClipFromBorderProperty.Border_OnChange(System.Object,System.Windows.RoutedEventArgs,System.Windows.FrameworkElement)">
+            <summary>
+            Called when the border is loaded and changed size
+            </summary>
+            <param name="sender">The border</param>
+            <param name="e"></param>
+            <param name="child">The child element (our selves)</param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IsBusyProperty">
+            <summary>
+            The IsBusy attached property for a anything that wants to flag if the control is busy
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateBaseProperty`1">
+            <summary>
+            A base class to run any animation method when a boolean is set to true
+            and a reverse animation when set to false
+            </summary>
+            <typeparam name="Parent"></typeparam>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.AnimateBaseProperty`1.mAlreadyLoaded">
+            <summary>
+            True if this is the very first time the value has been updated
+            Used to make sure we run the logic at least once during first load
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.AnimateBaseProperty`1.mFirstLoadValue">
+            <summary>
+            The most recent value used if we get a value changed before we do the first load
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateBaseProperty`1.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateBaseProperty`1.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <summary>
+            The animation method that is fired when the value changes
+            </summary>
+            <param name="element">The element</param>
+            <param name="value">The new value</param>
+            <param name="firstLoad"></param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.FadeInImageOnLoadProperty">
+            <summary>
+            Fades in an image once the source changes
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FadeInImageOnLoadProperty.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromLeftProperty">
+            <summary>
+            Animates a framework element sliding it in from the left on show
+            and sliding out to the left on hide
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromLeftProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromRightProperty">
+            <summary>
+            Animates a framework element sliding it in from the right on show
+            and sliding out to the right on hide
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromRightProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromRightMarginProperty">
+            <summary>
+            Animates a framework element sliding it in from the right on show
+            and sliding out to the right on hide
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromRightMarginProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromTopProperty">
+            <summary>
+            Animates a framework element sliding down from the top on show
+            and sliding out to the top on hide
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromTopProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromBottomProperty">
+            <summary>
+            Animates a framework element sliding up from the bottom on show
+            and sliding out to the bottom on hide
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromBottomProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromBottomOnLoadProperty">
+            <summary>
+            Animates a framework element sliding up from the bottom on load
+            if the value is true
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromBottomOnLoadProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateSlideInFromBottomMarginProperty">
+            <summary>
+            Animates a framework element sliding up from the bottom on show
+            and sliding out to the bottom on hide
+            NOTE: Keeps the margin
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateSlideInFromBottomMarginProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateFadeInProperty">
+            <summary>
+            Animates a framework element fading in on show
+            and fading out on hide
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateFadeInProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AnimateMarqueeProperty">
+            <summary>
+            Animates a framework element sliding it from right to left and repeating forever
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AnimateMarqueeProperty.DoAnimation(System.Windows.FrameworkElement,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.PanelChildMarginProperty">
+            <summary>
+            The NoFrameHistory attached property for creating a <see cref="T:System.Windows.Controls.Frame"/> that never shows navigation
+            and keeps the navigation history empty
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.PanelChildMarginProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.MonitorPasswordProperty">
+            <summary>
+            The MonitorPassword attached property for a <see cref="T:System.Windows.Controls.PasswordBox"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MonitorPasswordProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MonitorPasswordProperty.PasswordBox_PasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Fired when the password box password value changes
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.HasTextProperty">
+            <summary>
+            The HasText attached property for a <see cref="T:System.Windows.Controls.PasswordBox"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.HasTextProperty.SetValue(System.Windows.DependencyObject)">
+            <summary>
+            Sets the HasText property based on if the caller <see cref="T:System.Windows.Controls.PasswordBox"/> has any text
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.LabelTextProperty">
+            <summary>
+            The label text attached property for a <see cref="T:System.Windows.Controls.TextBox"/> and <see cref="T:System.Windows.Controls.PasswordBox"/>/>
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.LabelTextForegroundProperty">
+            <summary>
+            The foreground of the label text attached property for a <see cref="T:System.Windows.Controls.TextBox"/> and <see cref="T:System.Windows.Controls.PasswordBox"/>/>
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ScrollToBottomOnLoadProperty">
+            <summary>
+            Scroll an items control to the bottom when the data context changes
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ScrollToBottomOnLoadProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AutoScrollToBottomProperty">
+            <summary>
+            Automatically keep the scroll at the bottom of the screen when we are already close to the bottom
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AutoScrollToBottomProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IsFocusedProperty">
+            <summary>
+            Focuses (keyboard focus) this element on load
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.IsFocusedProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.FocusProperty">
+            <summary>
+            Focuses (keyboard focus) this element if true
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FocusProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.FocusAndSelectProperty">
+            <summary>
+            Focuses (keyboard focus) and selects all text in this element if true
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FocusAndSelectProperty.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.PageHost">
+            <summary>
+            Interaction logic for PageHost.xaml
+            </summary>
+            <summary>
+            PageHost
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.PageHost.CurrentPage">
+            <summary>
+            The current page to show in the page host
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.PageHost.CurrentPageProperty">
+            <summary>
+            Registers <see cref="P:LoremIpsum.WpfApp.PageHost.CurrentPage"/> as a dependency property
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.PageHost.CurrentPageViewModel">
+            <summary>
+            The current page to show in the page host
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.PageHost.CurrentPageViewModelProperty">
+            <summary>
+            Registers <see cref="P:LoremIpsum.WpfApp.PageHost.CurrentPageViewModel"/> as a dependency property
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.PageHost.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.PageHost.CurrentPagePropertyChanged(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Called when the <see cref="P:LoremIpsum.WpfApp.PageHost.CurrentPage"/> value has changed
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.PageHost.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.SideMenuView">
+            <summary>
+            Interaction logic for SideMenuView.xaml
+            </summary>
+            <summary>
+            SideMenuView
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SideMenuView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ApplicationPageHelpers">
+            <summary>
+            Converts the <see cref="T:LoremIpsum.Core.ApplicationPage"/> to an actual view/page
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationPageHelpers.ToBasePage(LoremIpsum.Core.ApplicationPage,System.Object)">
+            <summary>
+            Takes a <see cref="T:LoremIpsum.Core.ApplicationPage"/> and a view model, if any, and creates the desired page
+            </summary>
+            <param name="page"></param>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationPageHelpers.ToApplicationPage(LoremIpsum.WpfApp.BaseUserControl)">
+            <summary>
+            Converts a <see cref="T:LoremIpsum.WpfApp.BaseUserControl"/> to the specific <see cref="T:LoremIpsum.Core.ApplicationPage"/> that is for that type of page
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseMultiValueConverter`1">
+            <summary>
+            A base value converter that allows direct XAML usage
+            </summary>
+            <typeparam name="T">The type of this multi converter</typeparam>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseMultiValueConverter`1.Converter">
+            <summary>
+            A single static instance of this value converter
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseMultiValueConverter`1.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Provides a static instance of the value converter 
+            </summary>
+            <param name="serviceProvider">The service provider</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseMultiValueConverter`1.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert one type to another
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseMultiValueConverter`1.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert a value back to it's source type
+            </summary>
+            <param name="value"></param>
+            <param name="targetTypes"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1">
+            <summary>
+            A base value converter that allows direct XAML usage
+            </summary>
+            <typeparam name="T">The type of this multi converter</typeparam>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1.Converter">
+            <summary>
+            A single static instance of this value converter
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Provides a static instance of the value converter 
+            </summary>
+            <param name="serviceProvider">The service provider</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert one type to another
+            </summary>
+            <param name="values"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert a value back to it's source type
+            </summary>
+            <param name="value"></param>
+            <param name="targetTypes"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert one type to another
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseSingleMultiValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert a value back to it's source type
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseValueConverter`1">
+            <summary>
+            A base value converter that allows direct XAML usage
+            </summary>
+            <typeparam name="T">The type of this value converter</typeparam>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseValueConverter`1.Converter">
+            <summary>
+            A single static instance of this value converter
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseValueConverter`1.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Provides a static instance of the value converter 
+            </summary>
+            <param name="serviceProvider">The service provider</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert one type to another
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert a value back to it's source type
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.AllBoolsToBoolMultiConverter">
+            <summary>
+            Takes multiple bools as input and returns true if all bools are true.
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AllBoolsToBoolMultiConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.AllBoolsToBoolMultiConverter.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.MathConverter">
+            <summary>
+            Value converter that performs arithmetic calculations over its argument(s)
+            </summary>
+            <remarks>
+            MathConverter can act as a value converter, or as a multi value converter (WPF only).
+            It is also a markup extension (WPF only) which allows to avoid declaring resources,
+            ConverterParameter must contain an arithmetic expression over converter arguments. Operations supported are +, -, * and /
+            Single argument of a value converter may referred as x, a, or {0}
+            Arguments of multi value converter may be referred as x,y,z,t (first-fourth argument), or a,b,c,d, or {0}, {1}, {2}, {3}, {4}, ...
+            The converter supports arithmetic expressions of arbitrary complexity, including nested subexpressions
+            </remarks>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MathConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MathConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MathConverter.Convert(System.Object[],System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MathConverter.ConvertBack(System.Object,System.Type[],System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ApplicationContentConverter">
+            <summary>
+            A converter that takes in a boolean and inverts it
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationContentConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationContentConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ApplicationModuleConverter">
+            <summary>
+            A converter that takes in a boolean and inverts it
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationModuleConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationModuleConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ApplicationModuleExtensions">
+            <summary>
+            Extensions for <see cref="T:LoremIpsum.Core.ApplicationModule"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationModuleExtensions.ToTabItem(LoremIpsum.Core.ApplicationModule)">
+            <summary>
+            Converts <see cref="T:LoremIpsum.Core.ApplicationModule"/> to <see cref="T:LoremIpsum.WpfApp.BaseTabItemViewModel"/>
+            </summary>
+            <param name="module"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BooleanInvertConverter">
+            <summary>
+            A converter that takes in a boolean and inverts it
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanInvertConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanInvertConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BooleanToBorderThicknessConverter">
+            <summary>
+            A converter that takes in a boolean and returns a thickness of 2 if true, useful for applying 
+            border radius on a true value
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanToBorderThicknessConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanToBorderThicknessConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BooleanToVisiblityConverter">
+            <summary>
+            A converter that takes in a boolean and returns a <see cref="T:System.Windows.Visibility"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanToVisiblityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanToVisiblityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BooleanToVisiblityGoneConverter">
+            <summary>
+            A converter that takes in a boolean and returns a <see cref="T:System.Windows.Visibility"/>
+            where false is <see cref="F:System.Windows.Visibility.Collapsed"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanToVisiblityGoneConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BooleanToVisiblityGoneConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.HorizontalAlignmentConverter">
+            <summary>
+            A converter that takes in the core horizontal alignment enum and converts it to a WPF alignment
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.HorizontalAlignmentConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.HorizontalAlignmentConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IsImmutableToBoolConverter">
+            <summary>
+            Returns true if an object is immutable
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.IsImmutableToBoolConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.IsImmutableToBoolConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IsNullToBoolConverter">
+            <summary>
+            A converter that takes an object and returns true if it is null
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.IsNullToBoolConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.IsNullToBoolConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.LanguageTypeConverter">
+            <summary>
+            A converter that takes a language string and converts it to <see cref="T:LoremIpsum.Core.LanguageType"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LanguageTypeConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LanguageTypeConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseDialogUserControl">
+            <summary>
+            The base class for any content that is being used inside of a <see cref="T:LoremIpsum.WpfApp.DialogWindow"/>
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseDialogUserControl.mDialogWindow">
+            <summary>
+            The dialog window we will be contained within
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseDialogUserControl.CloseCommand">
+            <summary>
+            Closes this dialog
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseDialogUserControl.WindowMinimumWidth">
+            <summary>
+            The minimum width of this dialog
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseDialogUserControl.WindowMinimumHeight">
+            <summary>
+            The minimum height of this dialog
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseDialogUserControl.TitleHeight">
+            <summary>
+            The height of the title bar
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseDialogUserControl.Title">
+            <summary>
+            The title for this dialog
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseDialogUserControl.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseDialogUserControl.ShowDialog``1(``0)">
+            <summary>
+            Displays a single message box to the user
+            </summary>
+            <param name="viewModel">The view model</param>
+            <typeparam name="T">The view model type for this control</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.DialogMessageBox">
+            <summary>
+            Interaction logic for DialogMessageBox.xaml
+            </summary>
+            <summary>
+            DialogMessageBox
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.DialogMessageBox.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.DI">
+            <summary>
+            A shorthand access class to get DI services with nice clean short code
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DI.UI">
+            <summary>
+            A shortcut to access the <see cref="T:LoremIpsum.WpfApp.IUIManager"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DI.ViewModelApplication">
+            <summary>
+            A shortcut to access the <see cref="T:LoremIpsum.WpfApp.ApplicationViewModel"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DI.ViewModelSettings">
+            <summary>
+            A shortcut to access the <see cref="T:LoremIpsum.WpfApp.SettingsViewModel"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DI.ViewModelLocalization">
+            <summary>
+            A shortcut to access the <see cref="T:LoremIpsum.WpfApp.SettingsViewModel"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DI.ClientDataStore">
+            <summary>
+            A shortcut to access toe <see cref="T:LoremIpsum.Core.IClientDataStore"/> service
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods for the <see cref="T:Dna.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkConstructionExtensions.AddLoremIpsumViewModels(Dna.FrameworkConstruction)">
+            <summary>
+            Injects the view models needed for Lorem Ipsum application
+            </summary>
+            <param name="construction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkConstructionExtensions.AddLoremIpsumClientServices(Dna.FrameworkConstruction)">
+            <summary>
+            Injects the Lorem Ipsum client application services needed
+            for the application
+            </summary>
+            <param name="construction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.FrameworkConstructionExtensions.AddFluentValidators(Dna.FrameworkConstruction)">
+            <summary>
+            Add fluent validators for some ViewModels
+            </summary>
+            <param name="construction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IUIManager">
+            <summary>
+            The UI manager that handles any UI interaction in the application
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.IUIManager.ShowMessage(LoremIpsum.WpfApp.MessageBoxDialogViewModel)">
+            <summary>
+            Displays a single message box to the user
+            </summary>
+            <param name="viewModel">The view model</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.UIManager">
+            <summary>
+            The applications implementation of the <see cref="T:LoremIpsum.WpfApp.IUIManager"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.UIManager.ShowMessage(LoremIpsum.WpfApp.MessageBoxDialogViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.LocalizationViewModel">
+            <summary>
+            The localization ViewModel of this application
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LocalizationViewModel.Common">
+            <summary>
+            A model of the localization strings being loaded
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LocalizationViewModel.IsLoading">
+            <summary>
+            Indicates if the loading of language is still running
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LocalizationViewModel.CurrentLanguage">
+            <summary>
+            Current language of the application
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LocalizationViewModel.ChangeLanguageCommand">
+            <summary>
+            Command to change language
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LocalizationViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LocalizationViewModel.LoadAsync(System.Object)">
+            <summary>
+            Loads the localization string based on the language passed
+            </summary>
+            <param name="param">The <see cref="T:LoremIpsum.Core.LanguageType"/> passed in for the selected language</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.Brushes">
+            <summary>
+            Static class for all ResourceKey of Brushes used in the application
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.Colors">
+            <summary>
+            Static class for all ResourceKey of Colors used in the application
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.Dimensions">
+            <summary>
+            Default dimension for all controls
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.Dimensions.CornerRadius">
+            <summary>
+            Default ResourceKey for ConrerRadius
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.Dimensions.BorderThickness">
+            <summary>
+            Default ResourceKey for BorderThickness
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.Dimensions.HorizontalSpace">
+            <summary>
+            Default ResourceKey for HorizontalSpace
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.Dimensions.VerticalSpace">
+            <summary>
+            Default ResourceKey for VerticalSpace
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ResourceLocator">
+            <summary>
+            A class that locates the selected theme
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ResourceLocator.LightColorScheme">
+            <summary>
+            Uri for Light color scheme
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ResourceLocator.DarkColorScheme">
+            <summary>
+            Uri for Dark color scheme
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ResourceLocator.SetColorScheme(System.Windows.ResourceDictionary,System.Uri,System.Uri)">
+            <summary>
+            Adds a resource dictionary with the specified uri to the MergedDictionaries collection of the rootResourceDictionary/>.
+            Additionally all child ResourceDictionaries are traversed recursively to find the current color scheme which is removed if found.
+            </summary>
+            <param name="rootResourceDictionary">The resource dictionary containing the currently active color scheme. It will receive the new color scheme in its MergedDictionaries. Expected are the resource dictionaries of the app or window.</param>
+            <param name="colorSchemeResourceUri">The Uri of the color scheme to be set. Can be taken from the <see cref="T:LoremIpsum.WpfApp.ResourceLocator"/> class.</param>
+            <param name="currentColorSchemeResourceUri">Optional uri to an external color scheme.</param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.EnterpriseSettingsViewModelValidator">
+            <summary>
+            Validators for <see cref="T:LoremIpsum.WpfApp.EnterpriseSettingsViewModel"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingsViewModelValidator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ApplicationViewModel">
+            <summary>
+            The application state as a view model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.CurrentPage">
+            <summary>
+            The current page of the application
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.CurrentPageViewModel">
+            <summary>
+            The view model to use for the current page when the CurrentPage changes
+            NOTE: This is not a live up-to-date view model of the current page
+                  it is simply used to set the view model of the current page 
+                  at the time it changes
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.SideMenuVisible">
+            <summary>
+            True if the side menu should be shown
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.ServerReachable">
+            <summary>
+            Determines if the application has network access to the main server
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.LoginDetailsVisible">
+            <summary>
+            True if the login details should be shown
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.ApplicationTabs">
+            <summary>
+            List of opened application tabs
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ApplicationViewModel.AddApplicationTabCommand">
+            <summary>
+            Commands that add an application tab
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationViewModel.#ctor">
+            <summary>
+            The default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationViewModel.GoToPage(LoremIpsum.Core.ApplicationPage,LoremIpsum.WpfApp.BaseViewModel)">
+            <summary>
+            Navigates to the specified page
+            </summary>
+            <param name="page">The page to go to</param>
+            <param name="viewModel">The view model, if any, to set explicitly to the new page</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ApplicationViewModel.HandleSuccessfulLoginAsync(LoremIpsum.Core.UserProfileDetailsApiModel)">
+            <summary>
+            Handles what happens when we have successfully logged in
+            </summary>
+            <param name="loginResult">The results from the successful login</param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.SettingsDesignModel">
+            <summary>
+            The design-time data for a <see cref="T:LoremIpsum.WpfApp.SettingsViewModel"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.SettingsDesignModel.Instance">
+            <summary>
+            A single instance of the design model
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsDesignModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.EnterpriseSettingsViewModel">
+            <summary>
+            View Model for the Enterprise Setting
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.CompanyName">
+            <summary>
+            Company Name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.Saving">
+            <summary>
+            Indicates if the enterprise setting is currently saving
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.Loading">
+            <summary>
+            Indicates if the fetching of enterprise setting is loading
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.SaveSettingCommand">
+            <summary>
+            Command that save setting
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.LoadCommand">
+            <summary>
+            Command that loads the enterprise settings
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.SaveSettingAsync">
+            <summary>
+            Save enterprise settings
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingsViewModel.LoadEnterPriseSettingsAsync">
+            <summary>
+            Loads the enterprise settings from database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.LoginViewModel">
+            <summary>
+            The View Model for a login screen
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LoginViewModel.Email">
+            <summary>
+            The email of the user
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LoginViewModel.LoginIsRunning">
+            <summary>
+            A flag indicating if the login command is running
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LoginViewModel.EmailHasValue">
+            <summary>
+            Check if the email has value on load
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LoginViewModel.LoginCommand">
+            <summary>
+            The command to login
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LoginViewModel.RegisterCommand">
+            <summary>
+            The command to register for a new account
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LoginViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LoginViewModel.LoginAsync(System.Object)">
+            <summary>
+            Attempts to log the user in
+            </summary>
+            <param name="parameter">The <see cref="T:System.Security.SecureString"/> passed in from the view for the users password</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LoginViewModel.RegisterAsync">
+            <summary>
+            Takes the user to the register page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.RegisterViewModel">
+            <summary>
+            The View Model for a register screen
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.RegisterViewModel.Username">
+            <summary>
+            The username of the user
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.RegisterViewModel.Email">
+            <summary>
+            The email of the user
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.RegisterViewModel.RegisterIsRunning">
+            <summary>
+            A flag indicating if the register command is running
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.RegisterViewModel.LoginCommand">
+            <summary>
+            The command to login
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.RegisterViewModel.RegisterCommand">
+            <summary>
+            The command to register for a new account
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RegisterViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RegisterViewModel.RegisterAsync(System.Object)">
+            <summary>
+            Attempts to register a new user
+            </summary>
+            <param name="parameter">The <see cref="T:System.Security.SecureString"/> passed in from the view for the users password</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RegisterViewModel.LoginAsync">
+            <summary>
+            Takes the user to the login page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.SettingsViewModel">
+            <summary>
+            The settings state as a view model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.SettingsViewModel.SettingsLoading">
+            <summary>
+            Indicates if the settings details are currently being loaded
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.SettingsViewModel.ShowLoginDetails">
+            <summary>
+            Flag to show the login details popup
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.SettingsViewModel.LogoutCommand">
+            <summary>
+            The command to logout of the application
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.SettingsViewModel.ShowLoginDetailsCommand">
+            <summary>
+            The command to show the login details as popup
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsViewModel.LoadAsync">
+            <summary>
+            Sets the settings view model properties based on the data in the client data store
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsViewModel.UpdateValuesFromLocalStoreAsync(LoremIpsum.Core.IClientDataStore)">
+            <summary>
+            Loads the settings from the local data store and binds them 
+            to this view model
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.SettingsViewModel.LoggingOut">
+            <summary>
+            Indicates if the user is currently logging out
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsViewModel.LogoutAsync">
+            <summary>
+            Logs the user out
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsViewModel.ClearUserData">
+            <summary>
+            Clears any data specific to the current user
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.SettingsViewModel.ShowLoginDetailsAsync">
+            <summary>
+            Shows the login details popup
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseTabCollectionViewModel">
+            <summary>
+            A custom collection 
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabCollectionViewModel.SelectCommand">
+            <summary>
+            Command to select
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabCollectionViewModel.CloseCommand">
+            <summary>
+            Command to close
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseTabCollectionViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseTabCollectionViewModel.#ctor(System.Collections.Generic.List{LoremIpsum.WpfApp.BaseTabItemViewModel})">
+            <summary>
+            Constructor with collection
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseTabItemViewModel">
+            <summary>
+            Base ViewModel for item tab
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel.Id">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel.IsSelected">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel.Label">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel.Icon">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel.ShowIcon">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel.ContentViewModelObject">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseTabItemViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseTabItemViewModel`1">
+            <summary>
+            Base View Model for tab with specific content ViewModel
+            </summary>
+            <typeparam name="T">content ViewModel</typeparam>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseTabItemViewModel`1.ContentViewModel">
+            <summary>
+            Specific content ViewModel
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseTabItemViewModel`1.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.UserMntViewModel">
+            <summary>
+            ViewModel for User Maintenance
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.UserMntViewModel.Users">
+            <summary>
+            List of users
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.UserMntViewModel.UsersLoading">
+            <summary>
+            Indicates if the list of users is currently being loaded
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.UserMntViewModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.UserMntViewModel.GetUsersAsync">
+            <summary>
+            Gets all users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.UserMntSingleViewModel">
+            <summary>
+            ViewModel for single view of User Maintenance
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseValidationViewModel`1">
+            <summary>
+            a base ViewModel that fires Property Changed events and Data Error Change events as needed
+            </summary>
+            <typeparam name="T">The type encapsulating the ViewModel</typeparam>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseValidationViewModel`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseValidationViewModel`1.Error">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseValidationViewModel`1.Item(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseValidationViewModel`1.GetErrors(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.BaseValidationViewModel`1.ErrorsChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseValidationViewModel`1.HasErrors">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseViewModel">
+            <summary>
+            A base view model that fires Property Changed events as needed
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseViewModel.mPropertyValueCheckLock">
+            <summary>
+            A global lock for property checks so prevent locking on different instances of expressions.
+            Considering how fast this check will always be it isn't an issue to globally lock all callers.
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.BaseViewModel.PropertyChanged">
+            <summary>
+            The event that is fired when any child property changes its value
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Call this to fire a <see cref="E:LoremIpsum.WpfApp.BaseViewModel.PropertyChanged"/> event
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseViewModel.RunCommandAsync(System.Linq.Expressions.Expression{System.Func{System.Boolean}},System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Runs a command if the updating flag is not set.
+            If the flag is true (indicating the function is already running) then the action is not run.
+            If the flag is false (indicating no running function) then the action is run.
+            Once the action is finished if it was run, then the flag is reset to false
+            </summary>
+            <param name="updatingFlag">The boolean property flag defining if the command is already running</param>
+            <param name="action">The action to run if the command is not already running</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseViewModel.RunCommandAsync``1(System.Linq.Expressions.Expression{System.Func{System.Boolean}},System.Func{System.Threading.Tasks.Task{``0}},``0)">
+            <summary>
+            Runs a command if the updating flag is not set.
+            If the flag is true (indicating the function is already running) then the action is not run.
+            If the flag is false (indicating no running function) then the action is run.
+            Once the action is finished if it was run, then the flag is reset to false
+            </summary>
+            <param name="updatingFlag">The boolean property flag defining if the command is already running</param>
+            <param name="action">The action to run if the command is not already running</param>
+            <param name="defaultValue"></param>
+            <typeparam name="T">The type the action returns</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1">
+            <summary>
+            A custom observable collection with selection 
+            </summary>
+            <typeparam name="T">Data type of the collection and selection</typeparam>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.Collection">
+            <summary>
+            The collection of <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.HasItems">
+            <summary>
+            Indicates if collection has items
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.Selected">
+            <summary>
+            The selected <typeparamref name="T"/> in the collection
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.AfterSelectedAction">
+            <summary>
+            An action after the selection has change
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.HasSelection">
+            <summary>
+            Indicates if has selection
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.Add(`0)">
+            <summary>
+            Adds a <typeparamref name="T"/> in the collection
+            </summary>
+            <param name="item">An instance of <typeparamref name="T"/></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.Remove(`0)">
+            <summary>
+            Removes a <typeparamref name="T"/> in the collection
+            </summary>
+            <param name="item">>An instance of <typeparamref name="T"/></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ObservableCollectionWithSelection`1.Clear">
+            <summary>
+            Clears the collection
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ValidationTemplate`1">
+            <summary>
+            General Template for ViewModels validation
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ValidationTemplate`1.#ctor(`0)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ValidationTemplate`1.Error">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ValidationTemplate`1.Item(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ValidationTemplate`1.GetErrors(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.ValidationTemplate`1.ErrorsChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ValidationTemplate`1.HasErrors">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ValidationFactory">
+            <summary>
+            Validation Factory
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.ValidationFactory.GetValidator``1">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.RelayCommand">
+            <summary>
+            A basic command that runs an Action
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.RelayCommand.mAction">
+            <summary>
+            The action to run
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.RelayCommand.CanExecuteChanged">
+            <summary>
+            The event thats fired when the <see cref="M:LoremIpsum.WpfApp.RelayCommand.CanExecute(System.Object)"/> value has changed
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RelayCommand.#ctor(System.Action)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            A relay command can always execute
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RelayCommand.Execute(System.Object)">
+            <summary>
+            Executes the commands Action
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.RelayParameterizedCommand">
+            <summary>
+            A basic command that runs an Action
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.RelayParameterizedCommand.mAction">
+            <summary>
+            The action to run
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.RelayParameterizedCommand.CanExecuteChanged">
+            <summary>
+            The event thats fired when the <see cref="M:LoremIpsum.WpfApp.RelayParameterizedCommand.CanExecute(System.Object)"/> value has changed
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RelayParameterizedCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RelayParameterizedCommand.CanExecute(System.Object)">
+            <summary>
+            A relay command can always execute
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RelayParameterizedCommand.Execute(System.Object)">
+            <summary>
+            Executes the commands Action
+            </summary>
+            <param name="parameter"></param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseDialogViewModel">
+            <summary>
+            A base view model for any dialogs
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseDialogViewModel.Title">
+            <summary>
+            The title of the dialog
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.MessageBoxDialogDesignModel">
+            <summary>
+            The design-time data for a <see cref="T:LoremIpsum.WpfApp.MessageBoxDialogViewModel"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.MessageBoxDialogDesignModel.Instance">
+            <summary>
+            A single instance of the design model   
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MessageBoxDialogDesignModel.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.MessageBoxDialogViewModel">
+            <summary>
+            Details for a message box dialog
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.MessageBoxDialogViewModel.Message">
+            <summary>
+            The message to display
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.MessageBoxDialogViewModel.OkText">
+            <summary>
+            The text to use for the OK button
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IHavePassword">
+            <summary>
+            An interface for a class that can provide a secure password
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IHavePassword.SecurePassword">
+            <summary>
+            The secure password
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.IViewModelTab">
+            <summary>
+            Base Interface of an item tab
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IViewModelTab.Id">
+            <summary>
+            Tab identification
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IViewModelTab.IsSelected">
+            <summary>
+            Indicates if the tab is selected
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IViewModelTab.Label">
+            <summary>
+            Label of the tab
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IViewModelTab.Icon">
+            <summary>
+            Icon string of the tab
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IViewModelTab.ShowIcon">
+            <summary>
+            Indicates if the icon should be visible
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.IViewModelTab.ContentViewModelObject">
+            <summary>
+            ViewModel of the tab content
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseUserControl">
+            <summary>
+            The base control for all pages to gain base functionality
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.BaseUserControl.mViewModel">
+            <summary>
+            The View Model associated with this control
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseUserControl.PageLoadAnimation">
+            <summary>
+            The animation the play when the control is first loaded
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseUserControl.PageUnloadAnimation">
+            <summary>
+            The animation the play when the control is unloaded
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseUserControl.SlideSeconds">
+            <summary>
+            The time any slide animation takes to complete
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseUserControl.ShouldAnimateOut">
+            <summary>
+            A flag to indicate if this control should animate out on load.
+            Useful for when we are moving the control to another frame
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseUserControl.ViewModelObject">
+            <summary>
+            The View Model associated with this control
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl.BasePage_LoadedAsync(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Once the control is loaded, perform any required animation
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl.AnimateInAsync">
+            <summary>
+            Animates the control in
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl.AnimateOutAsync">
+            <summary>
+            Animates the control out
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl.OnViewModelChanged">
+            <summary>
+            Fired when the view model changes
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.BaseUserControl`1">
+            <summary>
+            A base control with added ViewModel support
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.BaseUserControl`1.ViewModel">
+            <summary>
+            The view model associated with this control
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.BaseUserControl`1.#ctor(`0)">
+            <summary>
+            Constructor with specific view model
+            </summary>
+            <param name="specificViewModel">The specific view model to use, if any</param>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.EnterpriseSettingView">
+            <summary>
+            Interaction logic for EnterpriseSettingView.xaml
+            </summary>
+            <summary>
+            EnterpriseSettingView
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingView.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingView.#ctor(LoremIpsum.WpfApp.EnterpriseSettingsViewModel)">
+            <summary>
+            Constructor with specific view model
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.EnterpriseSettingView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.HomeView">
+            <summary>
+            Interaction logic for HomePage.xaml
+            </summary>
+            <summary>
+            HomeView
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.HomeView.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.HomeView.#ctor(LoremIpsum.WpfApp.HomeViewModel)">
+            <summary>
+            Constructor with specific view model
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.HomeView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.LoginView">
+            <summary>
+            Interaction logic for LoginPage.xaml
+            </summary>
+            <summary>
+            LoginView
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LoginView.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LoginView.#ctor(LoremIpsum.WpfApp.LoginViewModel)">
+            <summary>
+            Constructor with specific view model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.LoginView.SecurePassword">
+            <summary>
+            The secure password for this login page
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.LoginView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.RegisterView">
+            <summary>
+            Interaction logic for RegisterPage.xaml
+            </summary>
+            <summary>
+            RegisterView
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RegisterView.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RegisterView.#ctor(LoremIpsum.WpfApp.RegisterViewModel)">
+            <summary>
+            Constructor with specific view model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.RegisterView.SecurePassword">
+            <summary>
+            The secure password for this resgiter page
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.RegisterView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.WebRequestResultExtensions">
+            <summary>
+            Extension methods for the <see cref="T:LoremIpsum.WpfApp.WebRequestResultExtensions"/> class
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WebRequestResultExtensions.HandleErrorIfFailedAsync(Dna.WebRequestResult,System.String)">
+            <summary>
+            Checks the web request result for any errors, displaying them if there are any,
+            or if we are unauthorized automatically logging us out
+            </summary>
+            <typeparam name="T">The type of Api Response</typeparam>
+            <param name="response">The response to check</param>
+            <param name="title">The title of the error dialog if there is an error</param>
+            <returns>Returns true if there was an error, or false if all was OK</returns>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.DialogWindow">
+            <summary>
+            Interaction logic for DialogWindow.xaml
+            </summary>
+            <summary>
+            DialogWindow
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.DialogWindow.mViewModel">
+            <summary>
+            The view model for this window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DialogWindow.ViewModel">
+            <summary>
+            The view model for this window
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.DialogWindow.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.DialogWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MainWindow.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.WindowDockPosition">
+            <summary>
+            The dock position of the window
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.Undocked">
+            <summary>
+            Not docked
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.Left">
+            <summary>
+            Docked to the left of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.Right">
+            <summary>
+            Docked to the right of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.TopBottom">
+            <summary>
+            Docked to the top/bottom of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.TopLeft">
+            <summary>
+            Docked to the top-left of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.TopRight">
+            <summary>
+            Docked to the top-right of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.BottomLeft">
+            <summary>
+            Docked to the bottom-left of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowDockPosition.BottomRight">
+            <summary>
+            Docked to the bottom-right of the screen
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.WindowResizer">
+            <summary>
+            Fixes the issue with Windows of Style <see cref="F:System.Windows.WindowStyle.None"/> covering the taskbar
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mWindow">
+            <summary>
+            The window to handle the resizing for
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mScreenSize">
+            <summary>
+            The last calculated available screen size
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mEdgeTolerance">
+            <summary>
+            How close to the edge the window has to be to be detected as at the edge of the screen
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mMonitorDpi">
+            <summary>
+            The transform matrix used to convert WPF sizes to screen pixels
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mLastScreen">
+            <summary>
+            The last screen the window was on
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mLastDock">
+            <summary>
+            The last known dock position
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowResizer.mBeingMoved">
+            <summary>
+            A flag indicating if the window is currently being moved/dragged
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.WindowResizer.WindowDockChanged">
+            <summary>
+            Called when the window dock position changes
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.WindowResizer.WindowStartedMove">
+            <summary>
+            Called when the window starts being moved/dragged
+            </summary>
+        </member>
+        <member name="E:LoremIpsum.WpfApp.WindowResizer.WindowFinishedMove">
+            <summary>
+            Called when the window has been moved/dragged and then finished
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowResizer.CurrentMonitorSize">
+            <summary>
+            The size and position of the current monitor the window is on
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowResizer.CurrentMonitorMargin">
+            <summary>
+            The margin around the window for the current window to compensate for any non-usable area
+            such as the task bar
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowResizer.CurrentScreenSize">
+            <summary>
+            The size and position of the current screen in relation to the multi-screen desktop
+            For example a second monitor on the right will have a Left position of
+            the X resolution of the screens on the left
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="window">The window to monitor and correctly maximize</param>
+            <param name="adjustSize">The callback for the host to adjust the maximum available size if needed</param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.Window_SourceInitialized(System.Object,System.EventArgs)">
+            <summary>
+            Initialize and hook into the windows message pump
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.Window_LocationChanged(System.Object,System.EventArgs)">
+            <summary>
+            Monitor for moving of the window and constantly check for docked positions
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.Window_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Monitors for size changes and detects if the window has been docked (Aero snap) to an edge
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.WindowProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            Listens out for all windows messages for this window
+            </summary>
+            <param name="hwnd"></param>
+            <param name="msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <param name="handled"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.WmGetMinMaxInfo(System.IntPtr,System.IntPtr)">
+            <summary>
+            Get the min/max window size for this window
+            Correctly accounting for the task bar size and position
+            </summary>
+            <param name="hwnd"></param>
+            <param name="lParam"></param>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowResizer.GetCursorPosition">
+            <summary>
+            Gets the current cursor position in screen coordinates relative to an entire multi-desktop position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.POINT.X">
+            <summary>
+            x coordinate of point.
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.POINT.Y">
+            <summary>
+            y coordinate of point.
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.POINT.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Construct a point of coordinates (x,y).
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.DialogWindowViewModel">
+            <summary>
+            The View Model for the custom flat window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DialogWindowViewModel.Title">
+            <summary>
+            The title of this dialog window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.DialogWindowViewModel.Content">
+            <summary>
+            The content to host inside the dialog
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.DialogWindowViewModel.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.ViewModelLocator">
+            <summary>
+            Locates view models from the IoC for use in binding in Xaml files
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ViewModelLocator.Instance">
+            <summary>
+            Singleton instance of the locator
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ViewModelLocator.ApplicationViewModel">
+            <summary>
+            The application view model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ViewModelLocator.SettingsViewModel">
+            <summary>
+            The settings view model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.ViewModelLocator.LocalizationViewModel">
+            <summary>
+            The Localization view model
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.WpfApp.WindowViewModel">
+            <summary>
+            The View Model for the custom flat window
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowViewModel.mWindow">
+            <summary>
+            The window this view model controls
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowViewModel.mWindowResizer">
+            <summary>
+            The window resizer helper that keeps the window size correct in various states
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowViewModel.mOuterMarginSize">
+            <summary>
+            The margin around the window to allow for a drop shadow
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowViewModel.mWindowRadius">
+            <summary>
+            The radius of the edges of the window
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.WpfApp.WindowViewModel.mDockPosition">
+            <summary>
+            The last known dock position
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.WindowMinimumWidth">
+            <summary>
+            The smallest width the window can go to
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.WindowMinimumHeight">
+            <summary>
+            The smallest height the window can go to
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.BeingMoved">
+            <summary>
+            True if the window is currently being moved/dragged
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.Borderless">
+            <summary>
+            True if the window should be borderless because it is docked or maximized
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.ResizeBorder">
+            <summary>
+            The size of the resize border around the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.ResizeBorderThickness">
+            <summary>
+            The size of the resize border around the window, taking into account the outer margin
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.InnerContentPadding">
+            <summary>
+            The padding of the inner content of the main window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.OuterMarginSize">
+            <summary>
+            The margin around the window to allow for a drop shadow
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.WindowRadius">
+            <summary>
+            The radius of the edges of the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.FlatBorderThickness">
+            <summary>
+            The rectangle border around the window when docked
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.WindowCornerRadius">
+            <summary>
+            The radius of the edges of the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.TitleHeight">
+            <summary>
+            The height of the title bar / caption of the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.TitleHeightGridLength">
+            <summary>
+            The height of the title bar / caption of the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.DimmableOverlayVisible">
+            <summary>
+            True if we should have a dimmed overlay on the window
+            such as when a popup is visible or the window is not focused
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.MinimizeCommand">
+            <summary>
+            The command to minimize the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.MaximizeCommand">
+            <summary>
+            The command to maximize the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.CloseCommand">
+            <summary>
+            The command to close the window
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.WpfApp.WindowViewModel.MenuCommand">
+            <summary>
+            The command to show the system menu of the window
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowViewModel.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowViewModel.GetMousePosition">
+            <summary>
+            Gets the current mouse position on the screen
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.WpfApp.WindowViewModel.WindowResized">
+            <summary>
+            If the window resizes to a special position (docked or maximized)
+            this will update all required property change events to set the borders and radius values
+            </summary>
+        </member>
+    </members>
+</doc>

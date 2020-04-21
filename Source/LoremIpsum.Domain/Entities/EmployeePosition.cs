@@ -28,15 +28,20 @@ namespace LoremIpsum.Domain
 
         #endregion
 
-
         #region Navigational Properties
-
+        /// <summary>
+        /// Employee
+        /// </summary>
         public  Employee Employee { get; set; }
+        /// <summary>
+        /// Position
+        /// </summary>
         public  Position Position { get; set; }
 
         #endregion
+
         /// <summary>
-        /// 
+        /// Default constructor
         /// </summary>
         public EmployeePosition()
         {

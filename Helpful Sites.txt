@@ -1,0 +1,3 @@
+Implementing Customer Authentication Scheme and Handler in Asp.Net Core 3x aside from JWTAuthentication Scheme
+
+- https://referbruv.com/blog/posts/implementing-custom-authentication-scheme-and-handler-in-aspnet-core-3x

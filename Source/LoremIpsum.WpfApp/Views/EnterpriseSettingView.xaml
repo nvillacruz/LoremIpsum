@@ -1,0 +1,70 @@
+﻿<local:BaseUserControl x:TypeArguments="local:EnterpriseSettingsViewModel"
+                       x:Class="LoremIpsum.WpfApp.EnterpriseSettingView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:local="clr-namespace:LoremIpsum.WpfApp"
+                       mc:Ignorable="d"
+                       d:DesignHeight="450"
+                       d:DesignWidth="800">
+
+    <local:BaseUserControl.Resources>
+        <DataTemplate x:Key="loadingView">
+            <TextBlock Style="{StaticResource SpinningText}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+        </DataTemplate>
+
+        <DataTemplate x:Key="errorView">
+            <StackPanel  HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
+                <TextBlock Text="{Binding ErrorText}" />
+                <Button Content="Try again" Command="{Binding LoadCommand}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="settingView">
+            <StackPanel Width="300"
+                        HorizontalAlignment="Left">
+                <TextBox Text="{Binding CompanyName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         Height="Auto"
+                         Style="{StaticResource LabelTextBoxStyle}"
+                         local:LabelTextProperty.Value="Company" />
+                <TextBox Text="{Binding CompanyName1, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         Height="Auto"
+                         Style="{StaticResource LabelTextBoxStyle}"
+                         local:LabelTextProperty.Value="Company" />
+                <Button Content="Save"
+                        local:IsBusyProperty.Value="{Binding Saving}"
+                        Command="{Binding SaveSettingCommand}" />
+
+            </StackPanel>
+        </DataTemplate>
+    </local:BaseUserControl.Resources>
+    <Grid>
+        <ContentPresenter Content="{Binding}">
+            <ContentPresenter.Style>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentTemplate"
+                            Value="{StaticResource settingView}">
+                    </Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Loading}"
+                                     Value="True">
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource loadingView}" />
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding ErrorLoading}"
+                                     Value="True">
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource errorView}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentPresenter.Style>
+        </ContentPresenter>
+    </Grid>
+
+</local:BaseUserControl>

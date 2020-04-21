@@ -1,0 +1,8 @@
+TODO in LoremIpsum
+- Pagination
+- Localization
+- Segoe MD Assets for window control icons - DONE
+- Make Segoe Md Assets icon thinner
+- Apply INotfiyDataerrorInfo/IDataErrorInfo with the FluentValidation - DONE
+
+

@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremIpsum.WpfApp", "LoremIpsum.WpfApp\LoremIpsum.WpfApp.csproj", "{92B9831F-08D8-4374-8B6C-06ECD8A4A924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoremIpsum.Domain", "LoremIpsum.Domain\LoremIpsum.Domain.csproj", "{592C3C74-4CCD-49AE-86FD-C845AAF55673}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremIpsum.Domain", "LoremIpsum.Domain\LoremIpsum.Domain.csproj", "{592C3C74-4CCD-49AE-86FD-C845AAF55673}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremIpsum.Core", "LoremIpsum.Core\LoremIpsum.Core.csproj", "{FF05B476-86AB-49A1-A220-BA86F3418F56}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremIpsum.Web.Server", "LoremIpsum.Web.Server\LoremIpsum.Web.Server.csproj", "{A9964039-A8E9-453F-BC23-46E1A1566C89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoremIpsum.Relational", "LoremIpsum.Relational\LoremIpsum.Relational.csproj", "{48ADDAD4-9490-4E4C-8C42-7C0F6370DA1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{592C3C74-4CCD-49AE-86FD-C845AAF55673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{592C3C74-4CCD-49AE-86FD-C845AAF55673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{592C3C74-4CCD-49AE-86FD-C845AAF55673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF05B476-86AB-49A1-A220-BA86F3418F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF05B476-86AB-49A1-A220-BA86F3418F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF05B476-86AB-49A1-A220-BA86F3418F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF05B476-86AB-49A1-A220-BA86F3418F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9964039-A8E9-453F-BC23-46E1A1566C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9964039-A8E9-453F-BC23-46E1A1566C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9964039-A8E9-453F-BC23-46E1A1566C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9964039-A8E9-453F-BC23-46E1A1566C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48ADDAD4-9490-4E4C-8C42-7C0F6370DA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48ADDAD4-9490-4E4C-8C42-7C0F6370DA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48ADDAD4-9490-4E4C-8C42-7C0F6370DA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48ADDAD4-9490-4E4C-8C42-7C0F6370DA1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

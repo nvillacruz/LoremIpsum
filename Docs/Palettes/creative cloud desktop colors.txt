@@ -1,0 +1,14 @@
+White ffffff
+Main Background - fafafa
+Border - eaeaea
+
+border of button - 4b4b4b
+accent color - 1473e6
+
+selected menu background - f2f2f2
+
+font color normal -676767
+font color light-767676
+font color bold - 595959
+
+Icon fill color- 6e6e6e

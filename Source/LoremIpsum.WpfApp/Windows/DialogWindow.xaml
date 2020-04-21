@@ -1,0 +1,141 @@
+﻿<Window x:Class="LoremIpsum.WpfApp.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoremIpsum.WpfApp"
+        xmlns:core="clr-namespace:LoremIpsum.Core;assembly=LoremIpsum.Core"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        Icon="../Images/Logo/logo-small.png"
+        MinWidth="{Binding WindowMinimumWidth}"
+        MinHeight="{Binding WindowMinimumHeight}"
+        Title="{Binding Title}">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:DialogWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer border with the drop shadow margin -->
+                        <Border Padding="{Binding OuterMarginSize, FallbackValue=10}"
+                                BorderBrush="{DynamicResource {x:Static local:Brushes.ForegroundDarkBrush1} }"
+                                BorderThickness="{Binding FlatBorderThickness}">
+                            
+                            <!-- Main window outline -->
+                            <Grid>
+
+                                <!-- Opacity mask for corners on grid -->
+                                <!--NOTE:Dynamic Resource is not working here, just leave as it is-->
+                                <Border x:Name="Container"
+                                        Background="White"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}" />
+
+                                <!-- Window border and drop shadow -->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        Background="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush}}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="2" Opacity="0.5" />
+                                    </Border.Effect>
+                                </Border>
+
+                                <!-- The main window content -->
+                                <Grid>
+                                    
+                                    <!-- Corner clipping -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}" />
+                                    </Grid.OpacityMask>
+                                    
+                                    <Grid.RowDefinitions>
+                                    
+                                        <!-- Title Bar -->
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}" />
+
+                                        <!-- Window Content -->
+                                        <RowDefinition Height="*" />
+
+                                    </Grid.RowDefinitions>
+                                    
+                                    <!-- Title Bar -->
+                                    <Grid 
+                                          Panel.ZIndex="1"
+                                          >
+
+                                        <Grid.ColumnDefinitions>
+                                            <!-- Icon -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Title -->
+                                            <ColumnDefinition Width="*" />
+                                            <!-- Windows Button -->
+                                            <ColumnDefinition Width="Auto" />
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Icon -->
+                                        <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
+                                            <Image Source="../Images/Logo/logo-small.png" />
+                                        </Button>
+
+                                        <!-- Title -->
+                                        <TextBlock Grid.Column="1" 
+                                                   Text="{Binding Title}"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="{StaticResource FontSizeMedium}"
+                                                   FontFamily="{StaticResource LatoRegular}"
+                                                   Foreground="{DynamicResource {x:Static local:Brushes.BlackBrush1}}"
+                                                   />
+
+                                        <!-- Window Buttons -->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}" 
+                                                    Style="{StaticResource WindowMinimizeButton}" 
+                                                    Visibility="Collapsed"
+                                                    />
+                                            <Button Command="{Binding MaximizeCommand}"
+                                                    Style="{StaticResource WindowMaximizeButton}"
+                                                    Visibility="Collapsed" />
+                                            <Button Command="{Binding CloseCommand}" 
+                                                    Style="{StaticResource WindowCloseButton}"
+                                                    Foreground="{DynamicResource {x:Static local:Brushes.BlackBrush1}}"
+                                                   />
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                    <!-- Page Content -->
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}" ClipToBounds="True">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
+                                    </Border>
+                                    
+                                </Grid>
+                                
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
+
+    <Border Background="{DynamicResource {x:Static local:Brushes.MainBackgroundBrush}}"
+            Padding="10">
+
+        <ContentControl Content="{Binding Content}" />
+
+    </Border>
+
+</Window>

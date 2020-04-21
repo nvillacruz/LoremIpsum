@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoremIpsum.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:LoremIpsum.Domain.ApplicationUser">
+            <summary>
+            The user data and profile for our application
+            </summary>
+            
+        </member>
+        <member name="P:LoremIpsum.Domain.ApplicationUser.Employee">
+            <summary>
+            Navigational Property for <see cref="P:LoremIpsum.Domain.ApplicationUser.Employee"/>
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.BaseDataModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.BaseDataModel.DateCreated">
+            <summary>
+            The Date when the entry is created
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.BaseDataModel.DateModified">
+            <summary>
+            The date when the entry is last modified
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.BaseDataModel.CreatedBy">
+            <summary>
+            User Id who created the entry
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.BaseDataModel.ModifiedBy">
+            <summary>
+            User Id who last modified the entry
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.Department">
+             <summary>
+            Department table representational model
+             </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Department.Id">
+            <summary>
+            The unique Id
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Department.Name">
+            <summary>
+            The name of department
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Department.Description">
+            <summary>
+            The description of department
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Department.EmployeeDepartments">
+            <summary>
+            The join table between <see cref="T:LoremIpsum.Domain.Employee"/> and <see cref="T:LoremIpsum.Domain.Department"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Domain.Department.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.Employee">
+            <summary>
+            Employee database table representational model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.Id">
+            <summary>
+            The unique Employee Id
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.Code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.Gender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.BirthDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.FirstName">
+            <summary>
+            The users first name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.LastName">
+            <summary>
+            The users last name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.MiddleName">
+            <summary>
+            User's middle name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.SSSNnumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.TINNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.PHICNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.HDMFNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.HireDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.ResignedDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.Scheme">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.Address">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.EmployeeDepartments">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Employee.EmployeePositions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Domain.Employee.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.Gender">
+            <summary>
+            Gender enumeration
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Domain.Gender.Male">
+            <summary>
+            Male
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Domain.Gender.Female">
+            <summary>
+            Female
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.EmployeeDepartment">
+            <summary>
+            Our Settings database table representational model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeeDepartment.EmployeeId">
+            <summary>
+            The unique Employee Id
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeeDepartment.DepartmentID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeeDepartment.EffectivityDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeeDepartment.Employee">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeeDepartment.Department">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Domain.EmployeeDepartment.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.EmployeePosition">
+            <summary>
+            Our Settings database table representational model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeePosition.EmployeeId">
+            <summary>
+            The unique Employee Id
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeePosition.PositionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeePosition.EffectivityDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeePosition.Employee">
+            <summary>
+            Employee
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EmployeePosition.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Domain.EmployeePosition.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.EnterpriseSetting">
+            <summary>
+            Enterprise Setting table representational model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EnterpriseSetting.Id">
+            <summary>
+            Primary Key
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.EnterpriseSetting.CompanyName">
+            <summary>
+            Company Name
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Domain.Position">
+            <summary>
+            Our Settings database table representational model
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Position.Id">
+            <summary>
+            The unique Employee Id
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Position.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Position.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Domain.Position.EmployeePositions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Domain.Position.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

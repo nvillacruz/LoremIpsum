@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoremIpsum.Relational</name>
+    </assembly>
+    <members>
+        <member name="T:LoremIpsum.Relational.BaseClientDataStore">
+            <summary>
+            Stores and retrieves information about the client application 
+            such as login credentials, messages, settings and so on
+            in an SQLite database
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Relational.BaseClientDataStore.mDbContext">
+            <summary>
+            The database context for the client data store
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Relational.BaseClientDataStore.#ctor(LoremIpsum.Relational.ClientDataStoreDbContext)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The database to use</param>
+        </member>
+        <member name="M:LoremIpsum.Relational.BaseClientDataStore.HasCredentialsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Relational.BaseClientDataStore.EnsureDataStoreAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Relational.BaseClientDataStore.GetLoginCredentialsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Relational.BaseClientDataStore.SaveLoginCredentialsAsync(LoremIpsum.Core.LoginCredentialsDataModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Relational.BaseClientDataStore.ClearAllLoginCredentialsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.Relational.ClientDataStoreDbContext">
+            <summary>
+            The database context for the client data store
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Relational.ClientDataStoreDbContext.LoginCredentials">
+            <summary>
+            The client login credentials
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Relational.ClientDataStoreDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{LoremIpsum.Relational.ClientDataStoreDbContext})">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Relational.ClientDataStoreDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the database structure and relationships
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:LoremIpsum.Relational.LoginCredentialsDataModelConfiguration">
+            <summary>
+            Entity Configuration for <see cref="T:LoremIpsum.Core.LoginCredentialsDataModel"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Relational.LoginCredentialsDataModelConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{LoremIpsum.Core.LoginCredentialsDataModel})">
+            <summary>
+            Configuration Method
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:LoremIpsum.Relational.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods for the <see cref="T:Dna.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Relational.FrameworkConstructionExtensions.AddClientDataStore(Dna.FrameworkConstruction)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1316 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoremIpsum.Core</name>
+    </assembly>
+    <members>
+        <member name="P:LoremIpsum.Core.ApiResponse.Successful">
+            <summary>
+            Indicates if the API call was successful
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ApiResponse.ErrorMessage">
+            <summary>
+            The error message for a failed API call
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ApiResponse.Response">
+            <summary>
+            The API response object
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ApiResponse.Success">
+            <summary>
+            Returns a successful instance of <see cref="T:LoremIpsum.Core.ApiResponse"/> with no Response object
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.ApiResponse.Failed(System.String)">
+            <summary>
+            Returns a non-successful instance of <see cref="T:LoremIpsum.Core.ApiResponse"/> with no Response object
+            </summary>
+            <param name="error"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.ApiResponse.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ApiResponse`1">
+            <summary>
+            The response for all Web API calls made
+            with a specific type of known response
+            </summary>
+            <typeparam name="T">The specific type of server response</typeparam>
+        </member>
+        <member name="P:LoremIpsum.Core.ApiResponse`1.Response">
+            <summary>
+            The API response object as T
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ApiResponse`1.Success">
+            <summary>
+            Returns a successful instance of <see cref="T:LoremIpsum.Core.ApiResponse"/> with no Response object
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.ApiResponse`1.Failed(System.String)">
+            <summary>
+            Returns a non-successful instance of <see cref="T:LoremIpsum.Core.ApiResponse"/> with no Response object
+            </summary>
+            <param name="error"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.ForgotPasswordCredentialsApiModel">
+            <summary>
+            The credentials for  an API client to send Forgot Password link
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ForgotPasswordCredentialsApiModel.Email">
+            <summary>
+            The users  email
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.LoginCredentialsApiModel">
+            <summary>
+            The credentials for  an API client to log into the server and receive a token back
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsApiModel.UsernameOrEmail">
+            <inheritdoc/>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsApiModel.Password">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.Core.RegisterCredentialsApiModel">
+            <summary>
+            The credentials for an API client to register on the server 
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.Username">
+            <summary>
+            The users username
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.Email">
+            <summary>
+            The users email
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.FirstName">
+            <summary>
+            The users first name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.LastName">
+            <summary>
+            The users last name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.Password">
+            <summary>
+            The users password
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.PhoneNumber">
+            <summary>
+            users phone number
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.Affiliation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.RegisterCredentialsApiModel.Gender">
+            <summary>
+            Gender
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ResetPasswordCredentialsApiModel">
+            <summary>
+            The credentials for  an API client to send Forgot Password link
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ResetPasswordCredentialsApiModel.NewPassword">
+            <summary>
+            The users  email
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ResetPasswordCredentialsApiModel.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ResetPasswordCredentialsApiModel.Code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.UpdateUserCredentialsApiModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateUserCredentialsApiModel.FirstName">
+            <summary>
+            The users first name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateUserCredentialsApiModel.LastName">
+            <summary>
+            The users last name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateUserCredentialsApiModel.PhoneNumber">
+            <summary>
+            users phone number
+            </summary>
+            
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateUserCredentialsApiModel.ImageSource">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateUserCredentialsApiModel.Affiliation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateUserCredentialsApiModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.VerifyEmailCredentialsApiModel">
+            <summary>
+            The credentials for  an API client to send Forgot Password link
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.VerifyEmailCredentialsApiModel.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.VerifyEmailCredentialsApiModel.EmailToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.EnterpriseSettingResultApiModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.EnterpriseSettingResultApiModel.CompanyName">
+            <summary>
+            Company Name
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.UpdateEnterpriseSettingsApiModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UpdateEnterpriseSettingsApiModel.CompanyName">
+            <summary>
+            Company Name
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ForgotPasswordResultApiModel">
+            <summary>
+            The result of a login request via API
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ForgotPasswordResultApiModel.CallBackUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ForgotPasswordResultApiModel.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.RegisterResultApiModel">
+            <summary>
+            The result of a register request via API
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ResetPasswordResultApiModel">
+            <summary>
+            The result of a login request via API
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ResetPasswordResultApiModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ResetPasswordResultApiModel.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.UserProfileDetailsApiModel">
+            <summary>
+            The result of a login request or get user profile details request via API
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UserProfileDetailsApiModel.Token">
+            <summary>
+            The authentication token used to stay authenticated through future requests
+            </summary>
+            <remarks>The Token is only provided when called from the login methods</remarks>
+        </member>
+        <member name="P:LoremIpsum.Core.UserProfileDetailsApiModel.FirstName">
+            <summary>
+            The users first name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UserProfileDetailsApiModel.LastName">
+            <summary>
+            The users last name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UserProfileDetailsApiModel.Username">
+            <summary>
+            The users username
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.UserProfileDetailsApiModel.Email">
+            <summary>
+            The users email
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.UserProfileDetailsApiModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.UserProfileDetailsApiModel.ToLoginCredentialsDataModel">
+            <summary>
+            Creates a new <see cref="T:LoremIpsum.Core.LoginCredentialsDataModel"/>
+            from this model
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.VerifyEmailResultApiModel">
+            <summary>
+            The result of a login request via API
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.VerifyEmailResultApiModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.VerifyEmailResultApiModel.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.VerifyEmailResultApiModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.AsyncAwaiter">
+            <summary>
+            Adds the ability to safely await on tasks to be complete that need limited access
+            For example, only allowing one task to access some data at a time, like the old 
+            asynchronous locks
+            
+            This awaiter uses the safer semaphore to prevent any chance of a deadlock
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.AsyncAwaiter.SelfLock">
+            <summary>
+            A semaphore to lock the semaphore list
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.AsyncAwaiter.Semaphores">
+            <summary>
+            A list of all semaphore locks (one per key)
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.AsyncAwaiter.AwaitResultAsync``1(System.String,System.Func{System.Threading.Tasks.Task{``0}},System.Int32)">
+            <summary>
+            Awaits for any outstanding tasks to complete that are accessing the same key then runs the given task, returning it's value
+            </summary>
+            <param name="key">The key to await</param>
+            <param name="task">The task to perform inside of the semaphore lock</param>
+            <param name="maxAccessCount">If this is the first call, sets the maximum number of tasks that can access this task before it waiting</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.AsyncAwaiter.AwaitAsync(System.String,System.Func{System.Threading.Tasks.Task},System.Int32)">
+            <summary>
+            Awaits for any outstanding tasks to complete that are accessing the same key then runs the given task
+            </summary>
+            <param name="key">The key to await</param>
+            <param name="task">The task to perform inside of the semaphore lock</param>
+            <param name="maxAccessCount">If this is the first call, sets the maximum number of tasks that can access this task before it waiting</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.ApplicationModule">
+            <summary>
+            Enumeration of the application modules
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApplicationModule.EnterpriseSetting">
+            <summary>
+            Enterprise Setting module
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ApplicationPage">
+            <summary>
+            A page of the application
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApplicationPage.Login">
+            <summary>
+            The initial login page
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApplicationPage.Register">
+            <summary>
+            The register page
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApplicationPage.Home">
+            <summary>
+            Home Page
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ElementHorizontalAlignment">
+            <summary>
+            Horizontal alignment values for an element
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ElementHorizontalAlignment.Left">
+            <summary>
+            Aligned to the left
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ElementHorizontalAlignment.Center">
+            <summary>
+            Aligned to the center
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ElementHorizontalAlignment.Right">
+            <summary>
+            Aligned to the right
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ElementHorizontalAlignment.Stretch">
+            <summary>
+            Fills the width
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.LoginCredentialsDataModel">
+            <summary>
+            The data model for the login credentials of a client
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsDataModel.Id">
+            <summary>
+            The unique Id
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsDataModel.Username">
+            <summary>
+            The users username
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsDataModel.FirstName">
+            <summary>
+            The users first name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsDataModel.LastName">
+            <summary>
+            The users last name
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsDataModel.Email">
+            <summary>
+            The users email
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.LoginCredentialsDataModel.Token">
+            <summary>
+            The users login token
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.CoreDI.TaskManager">
+            <summary>
+            A shortcut to access the <see cref="T:LoremIpsum.Core.ITaskManager"/>
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.EmailServicesDependecyInjection">
+            <summary>
+            A shorthand access class to get DI services with nice clean short code
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.EmailServicesDependecyInjection.EmailSender">
+            <summary>
+            The transient instance of the <see cref="T:LoremIpsum.Core.IEmailSender"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.EmailServicesDependecyInjection.EmailTemplateSender">
+            <summary>
+            The transient instance of the <see cref="T:LoremIpsum.Core.IEmailTemplateSender"/>
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.SendEmailDetails">
+            <summary>
+            The details about the email to send
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.FromName">
+            <summary>
+            The name of the sender
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.FromEmail">
+            <summary>
+            The email of the sender
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.ToName">
+            <summary>
+            The name of the receiver
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.ToEmail">
+            <summary>
+            The email of the receiver
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.Subject">
+            <summary>
+            The email subject
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.Content">
+            <summary>
+            The email body content
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailDetails.IsHTML">
+            <summary>
+            Indicates if the contents is a HTML email
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.SendEmailResponse">
+            <summary>
+            A response from a SendEmail call for any <see cref="T:LoremIpsum.Core.IEmailSender"/> implementation
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailResponse.Successful">
+            <summary>
+            True if the email was sent successfully
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendEmailResponse.Errors">
+            <summary>
+            The error message if the sending failed
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.IEmailSender">
+            <summary>
+            A service that handles sending emails on behalf of the caller
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.IEmailSender.SendEmailAsync(LoremIpsum.Core.SendEmailDetails)">
+            <summary>
+            Sends an email message with the given information
+            </summary>
+            <param name="details">The details about the email to send</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.IEmailTemplateSender">
+            <summary>
+            Sends emails using the <see cref="T:LoremIpsum.Core.IEmailSender"/> and creating the HTML
+            email from specific templates
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.IEmailTemplateSender.SendGeneralEmailAsync(LoremIpsum.Core.SendEmailDetails,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends an email with the given details using the General template
+            </summary>
+            <param name="details">The email message details. Note the Content property is ignored and replaced with the template</param>
+            <param name="title">The title</param>
+            <param name="content1">The first line contents</param>
+            <param name="content2">The second line contents</param>
+            <param name="buttonText">The button text</param>
+            <param name="buttonUrl">The button URL</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.LoremIpsumEmailSender">
+            <summary>
+            Handles sending emails specific to the Yhotel
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.LoremIpsumEmailSender.SendUserVerificationEmailAsync(System.String,System.String,System.String)">
+            <summary>
+            Sends a verification email to the specified user
+            </summary>
+            <param name="displayName">The users display name (typically first name)</param>
+            <param name="email">The users email to be verified</param>
+            <param name="verificationUrl">The URL the user needs to click to verify their email</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.LoremIpsumEmailSender.SendUserForgotPasswordLinkAsync(System.String,System.String,System.String)">
+            <summary>
+            Sends a forgot password link to the specified user
+            </summary>
+            <param name="displayName">The users display name (typically first name)</param>
+            <param name="email">The users email to be verified</param>
+            <param name="verificationUrl">The URL the user needs to click to go for the page of Resetting Password</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.SendGridEmailSender">
+            <summary>
+            Sends emails using the SendGrid service
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.SendGridEmailSender.SendEmailAsync(LoremIpsum.Core.SendEmailDetails)">
+            <summary>
+            
+            </summary>
+            <param name="details"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.SendGridExtensions">
+            <summary>
+            Extension methods for any SendGrid classes
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.SendGridExtensions.AddSendGridEmailSender(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Injects the <see cref="T:LoremIpsum.Core.SendGridEmailSender"/> into the services to handle the 
+            <see cref="T:LoremIpsum.Core.IEmailSender"/> service
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.SendGridResponse">
+            <summary>
+            A response to a SendGrid SendMessage call
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendGridResponse.Errors">
+            <summary>
+            Any errors from a response
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.SendGridResponseError">
+            <summary>
+            An error response for a <see cref="T:LoremIpsum.Core.SendGridResponse"/>
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendGridResponseError.Message">
+            <summary>
+            The error message
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendGridResponseError.Field">
+            <summary>
+            The field inside the email message details that the error is related to
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.SendGridResponseError.Help">
+            <summary>
+            Useful information for resolving the error
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.EmailTemplateSender">
+            <summary>
+            Handles sending templated emails
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.EmailTemplateSender.SendGeneralEmailAsync(LoremIpsum.Core.SendEmailDetails,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="details"></param>
+            <param name="title"></param>
+            <param name="content1"></param>
+            <param name="content2"></param>
+            <param name="buttonText"></param>
+            <param name="buttonUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.EmailTemplateSenderExtensions">
+            <summary>
+            Extension methods for any EmailTemplateSender classes
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.EmailTemplateSenderExtensions.AddEmailTemplateSender(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Injects the <see cref="T:LoremIpsum.Core.EmailTemplateSender"/> into the services to handle the 
+            <see cref="T:LoremIpsum.Core.IEmailTemplateSender"/> service
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.ExpressionHelpers">
+            <summary>
+            A helper for expressions
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.ExpressionHelpers.GetPropertyValue``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Compiles an expression and gets the functions return value
+            </summary>
+            <typeparam name="T">The type of return value</typeparam>
+            <param name="lambda">The expression to compile</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.ExpressionHelpers.GetPropertyValue``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``0)">
+            <summary>
+            Compiles an expression and gets the functions return value
+            </summary>
+            <typeparam name="T">The type of return value</typeparam>
+            <typeparam name="In">The input to the expression</typeparam>
+            <param name="lambda">The expression to compile</param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.ExpressionHelpers.SetPropertyValue``1(System.Linq.Expressions.Expression{System.Func{``0}},``0)">
+            <summary>
+            Sets the underlying properties value to the given value
+            from an expression that contains the property
+            </summary>
+            <typeparam name="T">The type of value to set</typeparam>
+            <param name="lambda">The expression</param>
+            <param name="value">The value to set the property to</param>
+        </member>
+        <member name="M:LoremIpsum.Core.ExpressionHelpers.SetPropertyValue``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``1,``0)">
+            <summary>
+            Sets the underlying properties value to the given value
+            from an expression that contains the property
+            </summary>
+            <typeparam name="T">The type of value to set</typeparam>
+            <typeparam name="In">The input to the expression</typeparam>
+            <param name="lambda">The expression</param>
+            <param name="value">The value to set the property to</param>
+            <param name="input"></param>
+        </member>
+        <member name="T:LoremIpsum.Core.PropertyBuilderExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.HasPrecision(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.Nullable{System.Decimal}},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="precision"></param>
+            <param name="scale"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.HasPrecision(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="precision"></param>
+            <param name="scale"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.HasPrecisionTwo(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.Decimal})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.HasMaxLengthAsName(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.HasMaxLengthAsDefaultEntity(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.HasMaxLengthAsGuid(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.PropertyBuilderExtensions.AsVarchar(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.StringExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.StringExtensions.NormalizedUpper(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.StringExtensions.NormalizedLower(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.GuidHelper.GenerateNewGuid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.BaseFileManager">
+            <summary>
+            Handles reading/writing and querying the file system
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseFileManager.WriteTextToFileAsync(System.String,System.String,System.Boolean)">
+            <summary>
+            Writes the text to the specified file
+            </summary>
+            <param name="text">The text to write</param>
+            <param name="path">The path of the file to write to</param>
+            <param name="append">If true, writes the text to the end of the file, otherwise overrides any existing file</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseFileManager.NormalizePath(System.String)">
+            <summary>
+            Normalizing a path based on the current operating system
+            </summary>
+            <param name="path">The path to normalize</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseFileManager.ResolvePath(System.String)">
+            <summary>
+            Resolves any relative elements of the path to absolute
+            </summary>
+            <param name="path">The path to resolve</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.IFileManager">
+            <summary>
+            Handles reading/writing and querying the file system
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.IFileManager.WriteTextToFileAsync(System.String,System.String,System.Boolean)">
+            <summary>
+            Writes the text to the specified file
+            </summary>
+            <param name="text">The text to write</param>
+            <param name="path">The path of the file to write to</param>
+            <param name="append">If true, writes the text to the end of the file, otherwise overrides any existing file</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.IFileManager.NormalizePath(System.String)">
+            <summary>
+            Normalizing a path based on the current operating system
+            </summary>
+            <param name="path">The path to normalize</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoremIpsum.Core.IFileManager.ResolvePath(System.String)">
+            <summary>
+            Resolves any relative elements of the path to absolute
+            </summary>
+            <param name="path">The path to resolve</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.ILoginCredentials">
+            <summary>
+            Interface for login credentials
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ILoginCredentials.UsernameOrEmail">
+            <summary>
+            The users username or email
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.ILoginCredentials.Password">
+            <summary>
+            The users password
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.CommonStringsModel">
+            <summary>
+            The model for the localization strings of the application
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.CommonStringsModel.Login">
+            <summary>
+            Login text
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.CommonStringsModel.EmailOrUserName">
+            <summary>
+            Email or Username text
+            </summary>
+        </member>
+        <member name="P:LoremIpsum.Core.CommonStringsModel.Password">
+            <summary>
+            Password text
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.ILocalizationManager">
+            <summary>
+            Interface that handles the Localization of the application
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.ILocalizationManager.GetLocalizedStrings(LoremIpsum.Core.LanguageType)">
+            <summary>
+            Gets the localized strings based on the <see cref="T:LoremIpsum.Core.LanguageType"/> passed
+            </summary>
+            <param name="language"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.LanguageType">
+            <summary>
+            Enumeration of available languages of the application
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.LanguageType.Unknown">
+            <summary>
+            Unknown language
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.LanguageType.English">
+            <summary>
+            English
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.LanguageType.France">
+            <summary>
+            France
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.LanguageType.Chinese">
+            <summary>
+            Chinese
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.LocalizationManager">
+            <summary>
+            A class that handles the localization of the application
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.LocalizationManager.GetLocalizedStrings(LoremIpsum.Core.LanguageType)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.Core.IClientDataStore">
+            <summary>
+            Stores and retrieves information about the client application 
+            such as login credentials, messages, settings and so on
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.IClientDataStore.HasCredentialsAsync">
+            <summary>
+            Determines if the current user has logged in credentials
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.IClientDataStore.EnsureDataStoreAsync">
+            <summary>
+            Makes sure the client data store is correctly set up
+            </summary>
+            <returns>Returns a task that will finish once setup is complete</returns>
+        </member>
+        <member name="M:LoremIpsum.Core.IClientDataStore.GetLoginCredentialsAsync">
+            <summary>
+            Gets the stored login credentials for this client
+            </summary>
+            <returns>Returns the login credentials if they exist, or null if none exist</returns>
+        </member>
+        <member name="M:LoremIpsum.Core.IClientDataStore.SaveLoginCredentialsAsync(LoremIpsum.Core.LoginCredentialsDataModel)">
+            <summary>
+            Stores the given login credentials to the backing data store
+            </summary>
+            <param name="loginCredentials">The login credentials to save</param>
+            <returns>Returns a task that will finish once the save is complete</returns>
+        </member>
+        <member name="M:LoremIpsum.Core.IClientDataStore.ClearAllLoginCredentialsAsync">
+            <summary>
+            Removes all login credentials stored in the data store
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.ApiRoutes">
+            <summary>
+            The relative routes to all Api calls in the server
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.Login">
+            <summary>
+            Api Route for login
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.LogOut">
+            <summary>
+            API Route for logout
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.Register">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.GetCurrentUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.UpdateUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.GetUserProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.UpdateAccountSettings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.FaceBookLogin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.VerifyEmail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.SendForgotPasswordLink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.ResetPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.Seed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.GetLocalizedStrings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.GetEnterpriseSetting">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.ApiRoutes.UpdateEnterpriseSetting">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.RouteHelpers">
+            <summary>
+            Helper methods for getting and working with web routes
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.RouteHelpers.GetAbsoluteRoute(System.String)">
+            <summary>
+            Converts a relative URL into an absolute URL
+            </summary>
+            <param name="relativeUrl">The relative URL</param>
+            <returns>Returns the absolute URL including the Host URL</returns>
+        </member>
+        <member name="T:LoremIpsum.Core.WebRoutes">
+            <summary>
+            The relative routes to all normal (non-API) calls in the server
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.WebRoutes.CreateUser">
+            <summary>
+            The route to the CreateUser method
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.WebRoutes.Logout">
+            <summary>
+            The route to the Logout method
+            </summary>
+        </member>
+        <member name="F:LoremIpsum.Core.WebRoutes.Login">
+            <summary>
+            The route to the Login method
+            </summary>
+        </member>
+        <member name="T:LoremIpsum.Core.SecureStringHelpers">
+            <summary>
+            Helpers for the <see cref="T:System.Security.SecureString"/> class
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.SecureStringHelpers.Unsecure(System.Security.SecureString)">
+            <summary>
+            Unsecures a <see cref="T:System.Security.SecureString"/> to plain text
+            </summary>
+            <param name="secureString">The secure string</param>
+            <returns></returns>
+        </member>
+        <member name="T:LoremIpsum.Core.BaseTaskManager">
+            <summary>
+            Handles anything to do with Tasks
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run(System.Func{System.Threading.Tasks.Task},System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.RunAndForget(System.Func{System.Threading.Tasks.Task},System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run``1(System.Func{System.Threading.Tasks.Task{``0}},System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run``1(System.Func{``0},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run``1(System.Func{``0},System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.RunAndForget(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run(System.Action,System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.RunAndForget(System.Action,System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.Run(System.Action,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:LoremIpsum.Core.BaseTaskManager.RunAndForget(System.Action,System.String,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:LoremIpsum.Core.ITaskManager">
+            <summary>
+            Handles anything to do with Tasks
+            </summary>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run(System.Func{System.Threading.Tasks.Task},System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a proxy for the
+            task returned by function.
+            </summary>
+            <param name="function">The work to execute asynchronously</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A task that represents a proxy for the task returned by function.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.RunAndForget(System.Func{System.Threading.Tasks.Task},System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a proxy for the
+            task returned by function.
+            </summary>
+            <param name="function">The work to execute asynchronously</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <remarks>
+                The passed in Task cannot be awaited as it is to be run and forgotten.
+                Any errors thrown will get logged to the ILogger in the DI provider
+                and then swallowed and not re-thrown to the caller thread
+            </remarks>
+            <returns>A task that represents a proxy for the task returned by function.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a proxy for the
+            Task(TResult) returned by function.
+            </summary>
+            <typeparam name="TResult">The type of the result returned by the proxy task.</typeparam>
+            <param name="function">The work to execute asynchronously</param>
+            <param name="cancellationToken">A cancellation token that should be used to cancel the work</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A Task(TResult) that represents a proxy for the Task(TResult) returned by function.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The task has been canceled.</exception>
+            <exception cref="T:System.ObjectDisposedException">The System.Threading.CancellationTokenSource associated with cancellationToken was disposed.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run``1(System.Func{System.Threading.Tasks.Task{``0}},System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a proxy for the
+            Task(TResult) returned by function.
+            </summary>
+            <typeparam name="TResult">The type of the result returned by the proxy task.</typeparam>
+            <param name="function">The work to execute asynchronously</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A Task(TResult) that represents a proxy for the Task(TResult) returned by function.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run``1(System.Func{``0},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a Task(TResult)
+            object that represents that work. A cancellation token allows the work to be
+            canceled.
+            </summary>
+            <typeparam name="TResult">The result type of the task.</typeparam>
+            <param name="function">The work to execute asynchronously</param>
+            <param name="cancellationToken">A cancellation token that should be used to cancel the work</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A Task(TResult) that represents the work queued to execute in the thread pool.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The task has been canceled.</exception>
+            <exception cref="T:System.ObjectDisposedException">The System.Threading.CancellationTokenSource associated with cancellationToken was disposed.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run``1(System.Func{``0},System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a System.Threading.Tasks.Task`1
+            object that represents that work.
+            </summary>
+            <typeparam name="TResult">The return type of the task.</typeparam>
+            <param name="function">The work to execute asynchronously.</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A task object that represents the work queued to execute in the thread pool.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a proxy for the
+            task returned by function.
+            </summary>
+            <param name="function">The work to execute asynchronously.</param>
+            <param name="cancellationToken">A cancellation token that should be used to cancel the work.</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A task that represents a proxy for the task returned by function.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The task has been canceled.</exception>
+            <exception cref="T:System.ObjectDisposedException">The System.Threading.CancellationTokenSource associated with cancellationToken was disposed.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.RunAndForget(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a proxy for the
+            task returned by function.
+            </summary>
+            <param name="function">The work to execute asynchronously.</param>
+            <param name="cancellationToken">A cancellation token that should be used to cancel the work.</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <remarks>
+                The passed in Task cannot be awaited as it is to be run and forgotten.
+                Any errors thrown will get logged to the ILogger in the DI provider
+                and then swallowed and not re-thrown to the caller thread
+            </remarks>
+            <returns>A task that represents a proxy for the task returned by function.</returns>
+            <exception cref="T:System.ArgumentNullException">The function parameter was null.</exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The task has been canceled.</exception>
+            <exception cref="T:System.ObjectDisposedException">The System.Threading.CancellationTokenSource associated with cancellationToken was disposed.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run(System.Action,System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a System.Threading.Tasks.Task
+            object that represents that work. A cancellation token allows the work to be
+            canceled.
+            </summary>
+            <param name="action">The work to execute asynchronously</param>
+            <param name="cancellationToken">A cancellation token that can be used to cancel the work</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A task that represents the work queued to execute in the thread pool.</returns>
+            <exception cref="T:System.ArgumentNullException">The action parameter was null.</exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The task has been canceled.</exception>
+            <exception cref="T:System.ObjectDisposedException">The System.Threading.CancellationTokenSource associated with cancellationToken was disposed.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.RunAndForget(System.Action,System.Threading.CancellationToken,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a System.Threading.Tasks.Task
+            object that represents that work. A cancellation token allows the work to be
+            canceled.
+            </summary>
+            <param name="action">The work to execute asynchronously</param>
+            <param name="cancellationToken">A cancellation token that can be used to cancel the work</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <remarks>
+                The passed in Task cannot be awaited as it is to be run and forgotten.
+                Any errors thrown will get logged to the ILogger in the DI provider
+                and then swallowed and not re-thrown to the caller thread
+            </remarks>
+            <returns>A task that represents the work queued to execute in the thread pool.</returns>
+            <exception cref="T:System.ArgumentNullException">The action parameter was null.</exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The task has been canceled.</exception>
+            <exception cref="T:System.ObjectDisposedException">The System.Threading.CancellationTokenSource associated with cancellationToken was disposed.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.Run(System.Action,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a System.Threading.Tasks.Task
+            object that represents that work.
+            </summary>
+            <param name="action">The work to execute asynchronously</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <returns>A task that represents the work queued to execute in the ThreadPool.</returns>
+            <exception cref="T:System.ArgumentNullException">The action parameter was null.</exception>
+        </member>
+        <member name="M:LoremIpsum.Core.ITaskManager.RunAndForget(System.Action,System.String,System.String,System.Int32)">
+            <summary>
+            Queues the specified work to run on the thread pool and returns a System.Threading.Tasks.Task
+            object that represents that work.
+            </summary>
+            <param name="action">The work to execute asynchronously</param>
+            <param name="origin">The method/function this message was logged in</param>
+            <param name="filePath">The code filename that this message was logged from</param>
+            <param name="lineNumber">The line of code in the filename this message was logged from</param>
+            <remarks>
+                The passed in Task cannot be awaited as it is to be run and forgotten.
+                Any errors thrown will get logged to the ILogger in the DI provider
+                and then swallowed and not re-thrown to the caller thread
+            </remarks>
+            <returns>A task that represents the work queued to execute in the ThreadPool.</returns>
+            <exception cref="T:System.ArgumentNullException">The action parameter was null.</exception>
+        </member>
+    </members>
+</doc>

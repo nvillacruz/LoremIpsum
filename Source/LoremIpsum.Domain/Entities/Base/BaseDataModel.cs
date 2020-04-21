@@ -3,9 +3,12 @@
 namespace LoremIpsum.Domain
 {
     /// <summary>
-    /// 
+    /// The abstract columns for some entities that require timestamps
+    /// However, by inheriting this base class, during migration, it still in the first order after the primary key
+    /// Existing issue in Microsoft: Migrations: Order columns of abstract base class properties last in CreateTable
+    /// https://github.com/dotnet/efcore/issues/11314
     /// </summary>
-    public class BaseDataModel
+    public abstract class BaseDataModel
     {
         #region Public Properties
 

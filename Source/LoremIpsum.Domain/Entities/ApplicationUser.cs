@@ -14,21 +14,8 @@ namespace LoremIpsum.Domain
         /// Navigational Property for <see cref="Employee"/>
         /// </summary>
         public  Employee Employee { get; set; }
-   
         
         #endregion
 
-
-        #region Default Constructor
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ApplicationUser() 
-        {
-       
-        } 
-       
-        #endregion
     }
 }
